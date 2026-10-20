@@ -1,0 +1,8 @@
+NAI Deep Agents is deploying.
+{{- if .Values.ingress.enabled }}
+Open: https://{{ .Values.ingress.host }}
+{{- else }}
+kubectl -n {{ .Release.Namespace }} port-forward svc/{{ include "nda.fullname" . }} 8000:{{ .Values.service.port }}
+Open: http://localhost:8000
+{{- end }}
+Make sure the Secret "{{ .Values.existingSecret }}" holds LLM_API_KEY and APP_AUTH_TOKEN (or APP_BASIC_AUTH).

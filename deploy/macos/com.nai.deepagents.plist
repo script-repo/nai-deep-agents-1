@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- ~/Library/LaunchAgents/com.nai.deepagents.plist  (replace YOU with your user name) -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.nai.deepagents</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/YOU/nai-deep-agents/.venv/bin/nai-agents</string>
+    <string>serve</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/YOU/nai-deep-agents</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>APP_DATA_DIR</key><string>/Users/YOU/Library/Application Support/nai-agents</string>
+  </dict>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>StandardOutPath</key><string>/Users/YOU/Library/Logs/nai-agents.log</string>
+  <key>StandardErrorPath</key><string>/Users/YOU/Library/Logs/nai-agents.err.log</string>
+</dict>
+</plist>

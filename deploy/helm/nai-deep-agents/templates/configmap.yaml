@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "nda.fullname" . }}
+  labels: {{- include "nda.labels" . | nindent 4 }}
+data:
+  LLM_PROVIDER: {{ .Values.llm.provider | quote }}
+  LLM_MODEL: {{ .Values.llm.model | quote }}
+  LLM_BASE_URL: {{ .Values.llm.baseUrl | quote }}
+  LLM_TEMPERATURE: {{ .Values.llm.temperature | quote }}
+  APP_CHECKPOINTER: {{ .Values.app.checkpointer | quote }}
+  APP_ALLOW_UI_MODEL_SETTINGS: {{ .Values.app.allowUiModelSettings | quote }}
+  APP_ALLOW_UI_API_KEYS: {{ .Values.app.allowUiApiKeys | quote }}
+  APP_LOG_LEVEL: {{ .Values.app.logLevel | quote }}
+  APP_DATA_DIR: /data
+  {{- if .Values.modelCatalog.configMap }}
+  MODEL_CATALOG: /etc/nai-agents/models.yaml
+  {{- end }}
+  {{- range $k, $v := .Values.app.extraEnv }}
+  {{ $k }}: {{ $v | quote }}
+  {{- end }}

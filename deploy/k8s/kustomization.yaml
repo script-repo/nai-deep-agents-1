@@ -1,0 +1,15 @@
+# kubectl apply -k deploy/k8s     (edit secret.example.yaml -> create your own Secret first)
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: nai-agents
+resources:
+  - namespace.yaml
+  - configmap.yaml
+  - pvc.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+images:
+  - name: nai-deep-agents
+    newName: ghcr.io/script-repo/nai-deep-agents
+    newTag: "0.1.0"

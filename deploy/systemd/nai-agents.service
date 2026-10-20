@@ -1,0 +1,32 @@
+# /etc/systemd/system/nai-agents.service
+# See README "Linux" for the full walkthrough.
+[Unit]
+Description=NAI Deep Agents (web UI + API)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=nai
+Group=nai
+WorkingDirectory=/opt/nai-deep-agents
+EnvironmentFile=/etc/nai-agents/nai-agents.env
+ExecStart=/opt/nai-deep-agents/.venv/bin/nai-agents serve --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=5
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/nai-agents
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+
+[Install]
+WantedBy=multi-user.target

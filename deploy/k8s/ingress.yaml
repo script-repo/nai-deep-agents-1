@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nai-agents
+  annotations:
+    # SSE needs unbuffered, long-lived responses. ingress-nginx:
+    nginx.ingress.kubernetes.io/proxy-buffering: "off"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    # Traefik (NKP's default ingress) streams SSE without extra settings.
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  # ingressClassName: kommander-traefik     # NKP; or nginx
+  tls:
+    - hosts: [agents.example.com]
+      secretName: nai-agents-tls
+  rules:
+    - host: agents.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service: {name: nai-agents, port: {name: http}}

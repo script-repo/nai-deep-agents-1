@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nai-agents
+  labels: {app.kubernetes.io/name: nai-agents}
+spec:
+  replicas: 1          # SQLite on a RWO volume => 1. Use Postgres for more.
+  strategy: {type: Recreate}
+  selector:
+    matchLabels: {app.kubernetes.io/name: nai-agents}
+  template:
+    metadata:
+      labels: {app.kubernetes.io/name: nai-agents}
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        fsGroup: 10001
+        seccompProfile: {type: RuntimeDefault}
+      containers:
+        - name: app
+          image: nai-deep-agents
+          ports: [{name: http, containerPort: 8000}]
+          envFrom:
+            - configMapRef: {name: nai-agents-config}
+            - secretRef: {name: nai-agents-secrets}
+          env:
+            - {name: APP_DATA_DIR, value: /data}
+          volumeMounts: [{name: data, mountPath: /data}, {name: tmp, mountPath: /tmp}]
+          readinessProbe:
+            httpGet: {path: /api/health, port: http}
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: {path: /api/health, port: http}
+            periodSeconds: 30
+            failureThreshold: 3
+          resources:
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {memory: 1Gi}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: [ALL]}
+      volumes:
+        - name: data
+          persistentVolumeClaim: {claimName: nai-agents-data}
+        - name: tmp
+          emptyDir: {}

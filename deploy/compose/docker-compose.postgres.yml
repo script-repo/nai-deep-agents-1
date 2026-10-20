@@ -1,0 +1,39 @@
+# Shared deployment: app + Postgres checkpointer + Caddy for automatic TLS.
+# Usage: cp .env.example .env (set APP_AUTH_TOKEN or APP_BASIC_AUTH, POSTGRES_PASSWORD, DOMAIN)
+#        docker compose -f deploy/compose/docker-compose.postgres.yml --env-file .env up -d
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: nai_agents
+      POSTGRES_USER: nai
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+    volumes: [pg-data:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nai -d nai_agents"]
+      interval: 5s
+      retries: 20
+    restart: unless-stopped
+  app:
+    build: ../..
+    image: nai-deep-agents:local
+    env_file: [../../.env]
+    environment:
+      APP_CHECKPOINTER: postgres
+      APP_DATABASE_URL: postgresql://nai:${POSTGRES_PASSWORD}@db:5432/nai_agents
+      APP_DATA_DIR: /data
+    volumes: [nai-data:/data]
+    depends_on:
+      db: {condition: service_healthy}
+    restart: unless-stopped
+  caddy:
+    image: caddy:2-alpine
+    ports: ["80:80", "443:443"]
+    command: caddy reverse-proxy --from ${DOMAIN:?set DOMAIN} --to app:8000
+    volumes: [caddy-data:/data]
+    depends_on: [app]
+    restart: unless-stopped
+volumes:
+  pg-data:
+  nai-data:
+  caddy-data:

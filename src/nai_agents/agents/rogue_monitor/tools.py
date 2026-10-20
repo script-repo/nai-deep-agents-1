@@ -7,6 +7,7 @@ Trace format: JSON Lines, one event per line, with at least `ts`, `agent_id`, `r
 
 from __future__ import annotations
 
+import itertools
 import math
 import re
 from collections import Counter, defaultdict
@@ -201,6 +202,29 @@ def detect_covert_channels(path: str = DEFAULT_TRACES) -> str:
                     "evidence": str(e.get("args")),
                 }
             )
+    # beaconing: many calls from one agent to one host at near-constant intervals
+    by_dest: dict[tuple[str, str], list[datetime]] = defaultdict(list)
+    for e in _events(path):
+        if e["type"] == "network":
+            host = (urlparse(e.get("url", "")).hostname or e.get("url", "")).split(".")[-3:]
+            by_dest[(e["agent_id"], ".".join(host))].append(
+                datetime.fromisoformat(e["ts"].replace("Z", "+00:00"))
+            )
+    for (agent, host), times in by_dest.items():
+        if len(times) >= 6:
+            gaps = [(b - a).total_seconds() for a, b in itertools.pairwise(times)]
+            mean = sum(gaps) / len(gaps)
+            spread = (sum((g - mean) ** 2 for g in gaps) / len(gaps)) ** 0.5
+            if mean > 0 and spread / mean < 0.1:
+                hits.append(
+                    {
+                        "agent_id": agent,
+                        "run_id": "",
+                        "ts": times[0].isoformat(),
+                        "technique": f"beaconing: {len(times)} calls to {host} every {mean:.1f}s",
+                        "evidence": host,
+                    }
+                )
     for (agent, base), events in suspicious.items():
         if len(events) >= burst:
             hits.append(

@@ -1,0 +1,75 @@
+{{- if and (gt (int .Values.replicaCount) 1) (ne .Values.app.checkpointer "postgres") }}
+{{- fail "replicaCount > 1 requires app.checkpointer=postgres (and APP_DATABASE_URL in the secret)" }}
+{{- end }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "nda.fullname" . }}
+  labels: {{- include "nda.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: {{ if eq .Values.app.checkpointer "sqlite" }}Recreate{{ else }}RollingUpdate{{ end }}
+  selector:
+    matchLabels: {{- include "nda.selector" . | nindent 6 }}
+  template:
+    metadata:
+      labels: {{- include "nda.selector" . | nindent 8 }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets: {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        fsGroup: 10001
+        seccompProfile: {type: RuntimeDefault}
+      containers:
+        - name: app
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports: [{name: http, containerPort: 8000}]
+          envFrom:
+            - configMapRef: {name: {{ include "nda.fullname" . }}}
+            {{- if .Values.existingSecret }}
+            - secretRef: {name: {{ .Values.existingSecret }}, optional: true}
+            {{- end }}
+          readinessProbe: {httpGet: {path: /api/health, port: http}, periodSeconds: 10}
+          livenessProbe: {httpGet: {path: /api/health, port: http}, periodSeconds: 30}
+          resources: {{- toYaml .Values.resources | nindent 12 }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: [ALL]}
+          volumeMounts:
+            - {name: data, mountPath: /data}
+            - {name: tmp, mountPath: /tmp}
+            {{- if .Values.modelCatalog.configMap }}
+            - {name: catalog, mountPath: /etc/nai-agents, readOnly: true}
+            {{- end }}
+      volumes:
+        - name: data
+          {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim: {claimName: {{ include "nda.fullname" . }}}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+        - name: tmp
+          emptyDir: {}
+        {{- if .Values.modelCatalog.configMap }}
+        - name: catalog
+          configMap:
+            name: {{ .Values.modelCatalog.configMap }}
+            items: [{key: {{ .Values.modelCatalog.key }}, path: models.yaml}]
+        {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector: {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations: {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity: {{- toYaml . | nindent 8 }}
+      {{- end }}

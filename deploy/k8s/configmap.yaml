@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nai-agents-config
+data:
+  LLM_PROVIDER: openai_compatible
+  # Nutanix Enterprise AI endpoint (OpenAI-compatible). Model = the NAI endpoint name.
+  LLM_BASE_URL: https://nai.example.com/api/v1
+  LLM_MODEL: llama-3-3-70b-instruct
+  LLM_TEMPERATURE: "0"
+  APP_CHECKPOINTER: sqlite        # set to postgres + APP_DATABASE_URL in the Secret for >1 replica
+  APP_ALLOW_UI_MODEL_SETTINGS: "false"
+  APP_ALLOW_UI_API_KEYS: "false"
+  APP_LOG_LEVEL: info

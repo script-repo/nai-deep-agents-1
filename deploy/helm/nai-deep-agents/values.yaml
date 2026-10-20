@@ -1,0 +1,54 @@
+image:
+  repository: ghcr.io/script-repo/nai-deep-agents
+  tag: ""            # defaults to .Chart.AppVersion
+  pullPolicy: IfNotPresent
+imagePullSecrets: []
+
+replicaCount: 1      # >1 requires checkpointer=postgres
+
+llm:
+  provider: openai_compatible      # mock | openai_compatible | openai | anthropic | ollama
+  model: llama-3-3-70b-instruct    # on Nutanix Enterprise AI: the endpoint name
+  baseUrl: https://nai.example.com/api/v1
+  temperature: "0"
+
+app:
+  checkpointer: sqlite             # sqlite | postgres
+  allowUiModelSettings: false
+  allowUiApiKeys: false
+  logLevel: info
+  extraEnv: {}
+
+# Name of an existing Secret with any of: LLM_API_KEY, APP_AUTH_TOKEN, APP_BASIC_AUTH, APP_DATABASE_URL.
+existingSecret: nai-agents-secrets
+
+# Optional: mount your own model catalog (models.yaml) from a ConfigMap key.
+modelCatalog:
+  configMap: ""
+  key: models.yaml
+
+persistence:
+  enabled: true
+  size: 5Gi
+  storageClass: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: ""                    # e.g. kommander-traefik on NKP, or nginx
+  host: agents.example.com
+  tlsSecret: nai-agents-tls
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-buffering: "off"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+
+resources:
+  requests: {cpu: 100m, memory: 256Mi}
+  limits: {memory: 1Gi}
+
+nodeSelector: {}
+tolerations: []
+affinity: {}

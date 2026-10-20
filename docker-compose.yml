@@ -1,0 +1,13 @@
+# Single host: app + SQLite on a volume. `docker compose up -d` then open http://localhost:8000
+services:
+  app:
+    build: .
+    image: nai-deep-agents:local
+    ports: ["8000:8000"]
+    env_file: [.env]
+    environment:
+      APP_DATA_DIR: /data
+    volumes: [nai-data:/data]
+    restart: unless-stopped
+volumes:
+  nai-data:
