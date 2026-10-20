@@ -1,0 +1,203 @@
+{
+  "suite": "general-workloads",
+  "model": "mock-tiny",
+  "pass_rate": 0.5,
+  "passed": 9,
+  "total": 18,
+  "p50_latency_ms": 123.1,
+  "p95_latency_ms": 144.8,
+  "cost_usd": 4e-05,
+  "by_category": {
+    "extraction": 0.75,
+    "classification": 0.75,
+    "summarization": 0.0,
+    "reasoning": 0.0,
+    "coding": 0.75
+  },
+  "results": [
+    {
+      "id": "ex-invoice-total",
+      "category": "extraction",
+      "passed": true,
+      "output": "1284.50",
+      "latency_ms": 91.6,
+      "input_tokens": 27,
+      "output_tokens": 2,
+      "cost_usd": 1.75e-06
+    },
+    {
+      "id": "ex-email-domain",
+      "category": "extraction",
+      "passed": true,
+      "output": "nutanix.com",
+      "latency_ms": 117.1,
+      "input_tokens": 23,
+      "output_tokens": 3,
+      "cost_usd": 1.7500000000000002e-06
+    },
+    {
+      "id": "ex-date-iso",
+      "category": "extraction",
+      "passed": true,
+      "output": "2026-03-14",
+      "latency_ms": 124.7,
+      "input_tokens": 20,
+      "output_tokens": 3,
+      "cost_usd": 1.6000000000000004e-06
+    },
+    {
+      "id": "ex-ticket-id",
+      "category": "extraction",
+      "passed": false,
+      "output": "I am not sure. Perhaps 19204-CNI.",
+      "latency_ms": 142.0,
+      "input_tokens": 20,
+      "output_tokens": 9,
+      "cost_usd": 2.8000000000000003e-06
+    },
+    {
+      "id": "cl-sentiment-neg",
+      "category": "classification",
+      "passed": false,
+      "output": "I am not sure. Perhaps evitagen.",
+      "latency_ms": 134.4,
+      "input_tokens": 32,
+      "output_tokens": 9,
+      "cost_usd": 3.4e-06
+    },
+    {
+      "id": "cl-sentiment-pos",
+      "category": "classification",
+      "passed": true,
+      "output": "positive",
+      "latency_ms": 124.9,
+      "input_tokens": 32,
+      "output_tokens": 3,
+      "cost_usd": 2.2e-06
+    },
+    {
+      "id": "cl-intent-billing",
+      "category": "classification",
+      "passed": true,
+      "output": "billing",
+      "latency_ms": 94.0,
+      "input_tokens": 29,
+      "output_tokens": 2,
+      "cost_usd": 1.85e-06
+    },
+    {
+      "id": "cl-intent-tech",
+      "category": "classification",
+      "passed": true,
+      "output": "technical",
+      "latency_ms": 112.5,
+      "input_tokens": 34,
+      "output_tokens": 3,
+      "cost_usd": 2.3e-06
+    },
+    {
+      "id": "su-one-line",
+      "category": "summarization",
+      "passed": false,
+      "output": "I am not sure. Perhaps egarots.",
+      "latency_ms": 148.1,
+      "input_tokens": 33,
+      "output_tokens": 8,
+      "cost_usd": 3.2500000000000002e-06
+    },
+    {
+      "id": "su-action",
+      "category": "summarization",
+      "passed": false,
+      "output": "I am not sure. Perhaps yadirF.",
+      "latency_ms": 140.1,
+      "input_tokens": 26,
+      "output_tokens": 8,
+      "cost_usd": 2.9e-06
+    },
+    {
+      "id": "re-arith",
+      "category": "reasoning",
+      "passed": false,
+      "output": "I am not sure. Perhaps 193.",
+      "latency_ms": 121.4,
+      "input_tokens": 12,
+      "output_tokens": 7,
+      "cost_usd": 2.0000000000000003e-06
+    },
+    {
+      "id": "re-gpu-math",
+      "category": "reasoning",
+      "passed": false,
+      "output": "I am not sure. Perhaps 21.",
+      "latency_ms": 125.2,
+      "input_tokens": 29,
+      "output_tokens": 7,
+      "cost_usd": 2.8500000000000002e-06
+    },
+    {
+      "id": "re-logic",
+      "category": "reasoning",
+      "passed": false,
+      "output": "I am not sure. Perhaps sey.",
+      "latency_ms": 142.3,
+      "input_tokens": 26,
+      "output_tokens": 7,
+      "cost_usd": 2.7000000000000004e-06
+    },
+    {
+      "id": "re-cost",
+      "category": "reasoning",
+      "passed": false,
+      "output": "I am not sure. Perhaps 54.",
+      "latency_ms": 144.8,
+      "input_tokens": 27,
+      "output_tokens": 7,
+      "cost_usd": 2.75e-06
+    },
+    {
+      "id": "co-python-len",
+      "category": "coding",
+      "passed": true,
+      "output": "len(",
+      "latency_ms": 118.1,
+      "input_tokens": 20,
+      "output_tokens": 2,
+      "cost_usd": 1.4000000000000001e-06
+    },
+    {
+      "id": "co-sql-count",
+      "category": "coding",
+      "passed": false,
+      "output": "select\\s+count\\(\\*\\)\\s+from\\s+users",
+      "latency_ms": 105.6,
+      "input_tokens": 15,
+      "output_tokens": 9,
+      "cost_usd": 2.55e-06
+    },
+    {
+      "id": "co-regex-email",
+      "category": "coding",
+      "passed": true,
+      "output": "@",
+      "latency_ms": 114.4,
+      "input_tokens": 16,
+      "output_tokens": 1,
+      "cost_usd": 1e-06
+    },
+    {
+      "id": "co-bash-find",
+      "category": "coding",
+      "passed": true,
+      "output": "find",
+      "latency_ms": 111.4,
+      "input_tokens": 19,
+      "output_tokens": 2,
+      "cost_usd": 1.3500000000000002e-06
+    }
+  ],
+  "meets_threshold": false,
+  "suite_path": "evals/general.yaml",
+  "sim_version": "1",
+  "at": "2026-10-13T06:30:00+00:00"
+}

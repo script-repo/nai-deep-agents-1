@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Northwind AI Blog</title>
+    <link>https://northwind.example.com/blog</link>
+    <description>News and research from Northwind AI (fictional).</description>
+    <item>
+      <title>Introducing Nova-5</title>
+      <link>https://northwind.example.com/blog/introducing-nova-5</link>
+      <pubDate>Wed, 14 Oct 2026 17:00:00 GMT</pubDate>
+      <description>Nova-5 is our most capable model yet, with stronger reasoning and coding. It has a 400K token context window and is available in the API today at $2.50 per 1M input tokens and $10.00 per 1M output tokens.</description>
+    </item>
+    <item>
+      <title>Nova-5 mini: fast and affordable</title>
+      <link>https://northwind.example.com/blog/nova-5-mini</link>
+      <pubDate>Wed, 14 Oct 2026 17:05:00 GMT</pubDate>
+      <description>A smaller, faster sibling of Nova-5 for high-volume workloads. 128K context. Pricing: $0.20 per 1M input tokens, $0.80 per 1M output tokens.</description>
+    </item>
+    <item>
+      <title>How we red-team our models</title>
+      <link>https://northwind.example.com/blog/red-teaming</link>
+      <pubDate>Fri, 02 Oct 2026 15:00:00 GMT</pubDate>
+      <description>A look at the people and tools behind our safety evaluations.</description>
+    </item>
+    <item>
+      <title>DevDay 2026 recap</title>
+      <link>https://northwind.example.com/blog/devday-2026</link>
+      <pubDate>Tue, 22 Sep 2026 20:00:00 GMT</pubDate>
+      <description>Everything we announced on stage, from the new console to batch discounts.</description>
+    </item>
+    <item>
+      <title>Introducing Nova-4.5</title>
+      <link>https://northwind.example.com/blog/introducing-nova-4-5</link>
+      <pubDate>Wed, 10 Jun 2026 17:00:00 GMT</pubDate>
+      <description>Nova-4.5 brings a 200K context window. $3.00 per 1M input tokens and $12.00 per 1M output tokens.</description>
+    </item>
+  </channel>
+</rss>

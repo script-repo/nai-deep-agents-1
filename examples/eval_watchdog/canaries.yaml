@@ -1,0 +1,17 @@
+# Canary prompts for fingerprinting. Each model answers them at temperature 0; the hash of the answers is the
+# model's fingerprint. If the fingerprint changes while the model name stays the same, the provider changed
+# something (weights, quantization, system prompt, decoding) — a "silent update".
+#
+# Pick prompts whose answers are stable at temperature 0 but sensitive to model changes: exact formats,
+# small reasoning steps, and a little free text. `expected` is only used by simulated (mock) models.
+name: canaries
+threshold: 0.0
+cases:
+  - {id: c-arith, prompt: "Compute 48 * 27. Answer with the number only.", expected: "1296", grader: number, difficulty: 0.3}
+  - {id: c-json, prompt: "Return the JSON object {\"ok\": true} and nothing else.", expected: "{\"ok\": true}", grader: contains, difficulty: 0.25}
+  - {id: c-spell, prompt: "Spell the word 'Kubernetes' backwards in lowercase.", expected: "setenrebuk", grader: exact, difficulty: 0.35}
+  - {id: c-list, prompt: "List the first five prime numbers separated by commas.", expected: "2, 3, 5, 7, 11", grader: contains, difficulty: 0.3}
+  - {id: c-date, prompt: "What weekday was 2026-01-01? One word.", expected: "Thursday", grader: exact, difficulty: 0.35}
+  - {id: c-summary, prompt: "Summarize in exactly five words: 'The nightly backup failed because the disk was full.'", expected: "Backup failed: disk was full.", grader: contains, difficulty: 0.3}
+  - {id: c-code, prompt: "Write a Python one-liner that reverses a string s.", expected: "s[::-1]", grader: contains, difficulty: 0.3}
+  - {id: c-unit, prompt: "How many mebibytes are in one gibibyte? Number only.", expected: "1024", grader: number, difficulty: 0.3}

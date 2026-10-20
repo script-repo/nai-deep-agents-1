@@ -1,0 +1,30 @@
+{
+  "description": "Simulated provider /models listings for mock mode. The last snapshot is 'now'; the one before is what the watchdog saw last time (until it has its own record in the data directory). `silent_updates` simulates a provider changing a model behind the same name: in mock mode the model's simulated version (and here its quality) changes, so its canary fingerprint and eval results change.",
+  "provider": "mock",
+  "snapshots": [
+    {
+      "taken_at": "2026-10-13T06:00:00Z",
+      "models": [
+        {"id": "mock-tiny", "created": "2025-11-02"},
+        {"id": "mock-small", "created": "2026-01-15"},
+        {"id": "mock-medium", "created": "2026-03-04"},
+        {"id": "mock-large", "created": "2026-05-20"}
+      ]
+    },
+    {
+      "taken_at": "2026-10-20T06:00:00Z",
+      "models": [
+        {"id": "mock-tiny", "created": "2025-11-02"},
+        {"id": "mock-small", "created": "2026-01-15"},
+        {"id": "mock-medium", "created": "2026-03-04"},
+        {"id": "mock-large", "created": "2026-05-20"},
+        {"id": "mock-medium-2026-10", "created": "2026-10-17", "context_window": 256000,
+         "input_per_mtok": 0.7, "output_per_mtok": 2.8, "sim_skill": 0.95, "sim_latency_ms": 520}
+      ]
+    }
+  ],
+  "silent_updates": {
+    "mock-small": {"sim_version": "2026-10-18-q4", "sim_skill": 0.68,
+                   "note": "Simulates the provider moving the endpoint to a quantized serving build."}
+  }
+}

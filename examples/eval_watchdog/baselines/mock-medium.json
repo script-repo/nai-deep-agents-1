@@ -1,0 +1,203 @@
+{
+  "suite": "general-workloads",
+  "model": "mock-medium",
+  "pass_rate": 0.8333,
+  "passed": 15,
+  "total": 18,
+  "p50_latency_ms": 605.2,
+  "p95_latency_ms": 702.5,
+  "cost_usd": 0.000534,
+  "by_category": {
+    "extraction": 1.0,
+    "classification": 1.0,
+    "summarization": 1.0,
+    "reasoning": 0.5,
+    "coding": 0.75
+  },
+  "results": [
+    {
+      "id": "ex-invoice-total",
+      "category": "extraction",
+      "passed": true,
+      "output": "1284.50",
+      "latency_ms": 584.1,
+      "input_tokens": 27,
+      "output_tokens": 2,
+      "cost_usd": 2.8e-05
+    },
+    {
+      "id": "ex-email-domain",
+      "category": "extraction",
+      "passed": true,
+      "output": "nutanix.com",
+      "latency_ms": 494.5,
+      "input_tokens": 23,
+      "output_tokens": 3,
+      "cost_usd": 2.8000000000000003e-05
+    },
+    {
+      "id": "ex-date-iso",
+      "category": "extraction",
+      "passed": true,
+      "output": "2026-03-14",
+      "latency_ms": 620.5,
+      "input_tokens": 20,
+      "output_tokens": 3,
+      "cost_usd": 2.5600000000000006e-05
+    },
+    {
+      "id": "ex-ticket-id",
+      "category": "extraction",
+      "passed": true,
+      "output": "INC-40291",
+      "latency_ms": 652.9,
+      "input_tokens": 20,
+      "output_tokens": 3,
+      "cost_usd": 2.5600000000000006e-05
+    },
+    {
+      "id": "cl-sentiment-neg",
+      "category": "classification",
+      "passed": true,
+      "output": "negative",
+      "latency_ms": 637.3,
+      "input_tokens": 32,
+      "output_tokens": 3,
+      "cost_usd": 3.52e-05
+    },
+    {
+      "id": "cl-sentiment-pos",
+      "category": "classification",
+      "passed": true,
+      "output": "positive",
+      "latency_ms": 483.6,
+      "input_tokens": 32,
+      "output_tokens": 3,
+      "cost_usd": 3.52e-05
+    },
+    {
+      "id": "cl-intent-billing",
+      "category": "classification",
+      "passed": true,
+      "output": "billing",
+      "latency_ms": 673.2,
+      "input_tokens": 29,
+      "output_tokens": 2,
+      "cost_usd": 2.96e-05
+    },
+    {
+      "id": "cl-intent-tech",
+      "category": "classification",
+      "passed": true,
+      "output": "technical",
+      "latency_ms": 604.2,
+      "input_tokens": 34,
+      "output_tokens": 3,
+      "cost_usd": 3.68e-05
+    },
+    {
+      "id": "su-one-line",
+      "category": "summarization",
+      "passed": true,
+      "output": "storage",
+      "latency_ms": 471.8,
+      "input_tokens": 33,
+      "output_tokens": 2,
+      "cost_usd": 3.2800000000000004e-05
+    },
+    {
+      "id": "su-action",
+      "category": "summarization",
+      "passed": true,
+      "output": "Friday",
+      "latency_ms": 672.9,
+      "input_tokens": 26,
+      "output_tokens": 2,
+      "cost_usd": 2.72e-05
+    },
+    {
+      "id": "re-arith",
+      "category": "reasoning",
+      "passed": true,
+      "output": "391",
+      "latency_ms": 531.8,
+      "input_tokens": 12,
+      "output_tokens": 1,
+      "cost_usd": 1.2800000000000001e-05
+    },
+    {
+      "id": "re-gpu-math",
+      "category": "reasoning",
+      "passed": true,
+      "output": "12",
+      "latency_ms": 553.8,
+      "input_tokens": 29,
+      "output_tokens": 1,
+      "cost_usd": 2.64e-05
+    },
+    {
+      "id": "re-logic",
+      "category": "reasoning",
+      "passed": false,
+      "output": "I am not sure. Perhaps sey.",
+      "latency_ms": 674.7,
+      "input_tokens": 26,
+      "output_tokens": 7,
+      "cost_usd": 4.3200000000000007e-05
+    },
+    {
+      "id": "re-cost",
+      "category": "reasoning",
+      "passed": false,
+      "output": "I am not sure. Perhaps 54.",
+      "latency_ms": 717.2,
+      "input_tokens": 27,
+      "output_tokens": 7,
+      "cost_usd": 4.4e-05
+    },
+    {
+      "id": "co-python-len",
+      "category": "coding",
+      "passed": true,
+      "output": "len(",
+      "latency_ms": 606.1,
+      "input_tokens": 20,
+      "output_tokens": 2,
+      "cost_usd": 2.2400000000000002e-05
+    },
+    {
+      "id": "co-sql-count",
+      "category": "coding",
+      "passed": false,
+      "output": "I am not sure. Perhaps sresu+s\\morf.",
+      "latency_ms": 702.5,
+      "input_tokens": 15,
+      "output_tokens": 10,
+      "cost_usd": 4.4000000000000006e-05
+    },
+    {
+      "id": "co-regex-email",
+      "category": "coding",
+      "passed": true,
+      "output": "@",
+      "latency_ms": 576.3,
+      "input_tokens": 16,
+      "output_tokens": 1,
+      "cost_usd": 1.6e-05
+    },
+    {
+      "id": "co-bash-find",
+      "category": "coding",
+      "passed": true,
+      "output": "find",
+      "latency_ms": 451.8,
+      "input_tokens": 19,
+      "output_tokens": 2,
+      "cost_usd": 2.1600000000000003e-05
+    }
+  ],
+  "meets_threshold": true,
+  "suite_path": "evals/general.yaml",
+  "sim_version": "1",
+  "at": "2026-10-13T06:30:00+00:00"
+}
