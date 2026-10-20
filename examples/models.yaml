@@ -1,0 +1,58 @@
+# Candidate models for routing, reviews, evals and release scouting.
+#
+# Prices are USD per million tokens. The `mock` entries below are SIMULATED models with illustrative
+# prices so everything runs offline; their quality comes from `sim_skill`. Replace or extend them with
+# real endpoints, for example:
+#
+#   - name: nai-llama-3-3-70b
+#     provider: openai_compatible
+#     model: llama-3-3-70b            # on Nutanix Enterprise AI this is the endpoint name
+#     base_url: https://nai.example.com/api/v1
+#     api_key_env: NAI_API_KEY         # read from the environment, never stored here
+#     input_per_mtok: 0.0              # on-prem: use your amortized cost per Mtok
+#     output_per_mtok: 0.0
+#   - name: claude-haiku
+#     provider: anthropic
+#     model: claude-haiku-4-5
+#     api_key_env: ANTHROPIC_API_KEY
+#     input_per_mtok: 1.0
+#     output_per_mtok: 5.0
+#
+# With a real LLM_PROVIDER configured, `mock` entries are ignored when real ones exist.
+models:
+  - name: mock-tiny
+    provider: mock
+    model: mock-tiny
+    input_per_mtok: 0.05
+    output_per_mtok: 0.20
+    context_window: 32000
+    tags: [local, fast]
+    sim_skill: 0.62
+    sim_latency_ms: 120
+  - name: mock-small
+    provider: mock
+    model: mock-small
+    input_per_mtok: 0.15
+    output_per_mtok: 0.60
+    context_window: 128000
+    tags: [fast]
+    sim_skill: 0.80
+    sim_latency_ms: 250
+  - name: mock-medium
+    provider: mock
+    model: mock-medium
+    input_per_mtok: 0.80
+    output_per_mtok: 3.20
+    context_window: 200000
+    tags: [balanced]
+    sim_skill: 0.93
+    sim_latency_ms: 600
+  - name: mock-large
+    provider: mock
+    model: mock-large
+    input_per_mtok: 3.00
+    output_per_mtok: 15.00
+    context_window: 200000
+    tags: [frontier]
+    sim_skill: 1.15
+    sim_latency_ms: 1400

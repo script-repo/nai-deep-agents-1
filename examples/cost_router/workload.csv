@@ -1,0 +1,6 @@
+category,monthly_requests,avg_input_tokens,avg_output_tokens,current_model
+extraction,420000,900,60,mock-large
+classification,610000,350,5,mock-large
+summarization,95000,2400,180,mock-large
+reasoning,40000,1200,400,mock-large
+coding,28000,3000,900,mock-large

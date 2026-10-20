@@ -1,0 +1,47 @@
+name: general-workloads
+description: >
+  A small eval set covering the task types a typical internal assistant sees. Replace it with
+  prompts from your own traffic (with expected answers) to make routing decisions meaningful.
+threshold: 0.8
+cases:
+  # --- extraction (easy) ---
+  - {id: ex-invoice-total, category: extraction, grader: number, expected: "1284.50",
+     prompt: "Extract the total from this invoice line and answer with the number only: 'TOTAL DUE: $1,284.50 (net 30)'"}
+  - {id: ex-email-domain, category: extraction, grader: exact, expected: "nutanix.com",
+     prompt: "What is the domain of the email address jane.doe@nutanix.com? Answer with the domain only."}
+  - {id: ex-date-iso, category: extraction, grader: exact, expected: "2026-03-14",
+     prompt: "Convert 'March 14, 2026' to ISO 8601 (YYYY-MM-DD). Answer with the date only."}
+  - {id: ex-ticket-id, category: extraction, grader: exact, expected: "INC-40291",
+     prompt: "Return only the ticket id from: 'Re: [INC-40291] VPN drops every 10 minutes'"}
+  # --- classification (easy) ---
+  - {id: cl-sentiment-neg, category: classification, grader: exact, expected: "negative",
+     prompt: "Classify the sentiment as positive, negative or neutral. Answer with one word: 'The upgrade broke our cluster twice this week.'"}
+  - {id: cl-sentiment-pos, category: classification, grader: exact, expected: "positive",
+     prompt: "Classify the sentiment as positive, negative or neutral. Answer with one word: 'Support resolved it in ten minutes, fantastic.'"}
+  - {id: cl-intent-billing, category: classification, grader: exact, expected: "billing",
+     prompt: "Route this ticket to one of: billing, technical, sales. Answer with one word: 'I was charged twice for October.'"}
+  - {id: cl-intent-tech, category: classification, grader: exact, expected: "technical",
+     prompt: "Route this ticket to one of: billing, technical, sales. Answer with one word: 'Pods are stuck in CrashLoopBackOff after the update.'"}
+  # --- summarization (medium) ---
+  - {id: su-one-line, category: summarization, grader: contains, expected: "storage", difficulty: 0.08,
+     prompt: "Summarize in one line: 'The cluster ran out of storage overnight because snapshots were never pruned; we added a retention policy.'"}
+  - {id: su-action, category: summarization, grader: contains, expected: "Friday", difficulty: 0.08,
+     prompt: "What is the action item and its deadline? 'Dana will send the revised quote to the customer by Friday.'"}
+  # --- reasoning (hard) ---
+  - {id: re-arith, category: reasoning, grader: number, expected: "391", difficulty: 0.15,
+     prompt: "What is 17 * 23? Answer with the number only."}
+  - {id: re-gpu-math, category: reasoning, grader: number, expected: "12", difficulty: 0.18,
+     prompt: "A node has 8 GPUs. Each model replica needs 2 GPUs. How many replicas fit on 3 nodes? Answer with the number only."}
+  - {id: re-logic, category: reasoning, grader: exact, expected: "yes", difficulty: 0.2,
+     prompt: "All prod clusters are monitored. Cluster C is a prod cluster. Is cluster C monitored? Answer yes or no."}
+  - {id: re-cost, category: reasoning, grader: number, expected: "45", difficulty: 0.2,
+     prompt: "A model costs $3 per million input tokens. What do 15 million input tokens cost in dollars? Number only."}
+  # --- coding (hard) ---
+  - {id: co-python-len, category: coding, grader: contains, expected: "len(", difficulty: 0.15,
+     prompt: "Write a Python expression that returns the number of items in a list named xs."}
+  - {id: co-sql-count, category: coding, grader: regex, expected: "select\\s+count\\(\\*\\)\\s+from\\s+users", difficulty: 0.2,
+     prompt: "Write a SQL query that counts all rows in the users table."}
+  - {id: co-regex-email, category: coding, grader: contains, expected: "@", difficulty: 0.2,
+     prompt: "Give a regular expression that matches a simple email address."}
+  - {id: co-bash-find, category: coding, grader: contains, expected: "find", difficulty: 0.22,
+     prompt: "Give a bash command that lists all .log files under /var/log recursively."}

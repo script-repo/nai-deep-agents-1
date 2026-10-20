@@ -1,0 +1,8 @@
+# Keywords used by route_task to classify an incoming task into an eval category.
+categories:
+  extraction: [extract, pull out, parse, find the, what is the date, invoice, field, id from]
+  classification: [classify, categorize, sentiment, route this, label, intent, triage]
+  summarization: [summarize, summary, tl;dr, recap, action item, minutes]
+  reasoning: [calculate, how many, prove, plan, why, compare, estimate, math]
+  coding: [code, python, sql, regex, bash, function, script, bug, refactor]
+default_category: reasoning
