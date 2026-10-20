@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from nai_agents.agents.spend_governor import tools as t
-from nai_agents.core.mock import MockContext, RoleScript, Step
+from nai_agents.core.mock import MockContext, RoleScript, Step, plan
 from nai_agents.core.registry import AgentSpec
 
 SYSTEM_PROMPT = """You are the AI Spend & ROI Governor for a company's AI usage. You turn raw usage and
@@ -114,13 +114,16 @@ def mock_script() -> dict[str, RoleScript]:
         )
     ]
     todos[0]["status"] = "in_progress"
+    labels = [t["content"] for t in todos]
     return {
         "spend-governor": RoleScript(
             steps=[
-                Step("write_todos", {"todos": todos}),
+                Step("write_todos", plan(labels, 0)),
                 Step("load_usage", {}),
+                Step("write_todos", plan(labels, 1)),
                 Step("spend_breakdown", {"dimension": "team"}),
                 Step("detect_anomalies", {}),
+                Step("write_todos", plan(labels, 2)),
                 Step(
                     "task",
                     {
@@ -129,10 +132,12 @@ def mock_script() -> dict[str, RoleScript]:
                     },
                 ),
                 Step("forecast_month_end", {}),
+                Step("write_todos", plan(labels, 3)),
                 Step("roi_report", {}),
                 Step("write_file", _report),
+                Step("write_todos", plan(labels, 5)),
                 Step("set_budget_alert", _over_budget),
-                Step("write_todos", {"todos": [dict(x, status="completed") for x in todos]}),
+                Step("write_todos", plan(labels, len(labels))),
             ],
             final=_final,
         ),

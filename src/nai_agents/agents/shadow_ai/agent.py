@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from nai_agents.agents.shadow_ai import tools as t
-from nai_agents.core.mock import MockContext, RoleScript, Step
+from nai_agents.core.mock import MockContext, RoleScript, Step, plan
 from nai_agents.core.registry import AgentSpec
 
 SYSTEM_PROMPT = """You are the Shadow-AI Discovery agent for an IT security team. You find unsanctioned AI
@@ -105,14 +105,17 @@ def mock_script() -> dict[str, RoleScript]:
             "Request approval for actions",
         )
     ]
+    labels = [t["content"] for t in todos]
     return {
         "shadow-ai": RoleScript(
             steps=[
-                Step("write_todos", {"todos": todos}),
+                Step("write_todos", plan(labels, 0)),
                 Step("scan_proxy_logs", {}),
                 Step("scan_dns_logs", {}),
                 Step("scan_saas_grants", {}),
+                Step("write_todos", plan(labels, 1)),
                 Step("list_findings", {}),
+                Step("write_todos", plan(labels, 2)),
                 Step(
                     "task",
                     lambda c: {
@@ -122,9 +125,10 @@ def mock_script() -> dict[str, RoleScript]:
                 ),
                 Step("draft_guidance", lambda c: {"user": _top_user(c)}),
                 Step("write_file", _report),
+                Step("write_todos", plan(labels, 4)),
                 Step("send_guidance", _send),
                 Step("block_domain", _block),
-                Step("write_todos", {"todos": [dict(x, status="completed") for x in todos]}),
+                Step("write_todos", plan(labels, len(labels))),
             ],
             final=_final,
         ),

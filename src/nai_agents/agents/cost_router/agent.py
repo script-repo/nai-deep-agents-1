@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 
 from nai_agents.agents.cost_router import tools as t
-from nai_agents.core.mock import MockContext, RoleScript, Step
+from nai_agents.core.mock import MockContext, RoleScript, Step, plan
 from nai_agents.core.registry import AgentSpec
 
 SYSTEM_PROMPT = """You are the Model Cost Router. Your job: send each kind of task to the cheapest model
@@ -104,20 +104,22 @@ def _eval_runner_final(ctx: MockContext) -> str:
     )
 
 
+LABELS = [
+    "Review candidate models and prices",
+    "Evaluate models per task category",
+    "Estimate monthly savings",
+    "Write routing report",
+    "Propose route changes for approval",
+]
+
+
 def mock_script() -> dict[str, RoleScript]:
-    todos = [
-        {"content": "Review candidate models and prices", "status": "in_progress"},
-        {"content": "Evaluate models per task category", "status": "pending"},
-        {"content": "Estimate monthly savings", "status": "pending"},
-        {"content": "Write routing report", "status": "pending"},
-        {"content": "Propose route changes for approval", "status": "pending"},
-    ]
-    done = [dict(x, status="completed") for x in todos]
     return {
         "cost-router": RoleScript(
             steps=[
-                Step("write_todos", {"todos": todos}),
+                Step("write_todos", plan(LABELS, 0)),
                 Step("list_models", {}),
+                Step("write_todos", plan(LABELS, 1)),
                 Step(
                     "task",
                     {
@@ -127,8 +129,11 @@ def mock_script() -> dict[str, RoleScript]:
                 ),
                 Step("compare_models", {"category": "classification"}),
                 Step("compare_models", {"category": "reasoning"}),
+                Step("write_todos", plan(LABELS, 2)),
                 Step("estimate_savings", lambda c: {"routes_json": json.dumps(_routes(c))}),
+                Step("write_todos", plan(LABELS, 3)),
                 Step("write_file", _report),
+                Step("write_todos", plan(LABELS, 4)),
                 Step(
                     "apply_routing",
                     lambda c: {
@@ -137,7 +142,7 @@ def mock_script() -> dict[str, RoleScript]:
                         "reason": "Cheapest model meeting the classification threshold in evals.",
                     },
                 ),
-                Step("write_todos", {"todos": done}),
+                Step("write_todos", plan(LABELS, len(LABELS))),
             ],
             final=_final,
         ),

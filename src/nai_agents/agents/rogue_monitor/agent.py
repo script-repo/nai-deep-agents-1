@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from nai_agents.agents.rogue_monitor import tools as t
-from nai_agents.core.mock import MockContext, RoleScript, Step
+from nai_agents.core.mock import MockContext, RoleScript, Step, plan
 from nai_agents.core.registry import AgentSpec
 
 SYSTEM_PROMPT = """You are the Rogue-Agent Containment Monitor, a security analyst for a fleet of AI agents.
@@ -103,13 +103,16 @@ def mock_script() -> dict[str, RoleScript]:
             "Write summary",
         )
     ]
+    labels = [t["content"] for t in todos]
     return {
         "rogue-monitor": RoleScript(
             steps=[
-                Step("write_todos", {"todos": todos}),
+                Step("write_todos", plan(labels, 0)),
                 Step("load_traces", {}),
+                Step("write_todos", plan(labels, 1)),
                 Step("threat_summary", {}),
                 Step("detect_exfiltration", {}),
+                Step("write_todos", plan(labels, 2)),
                 Step(
                     "task",
                     lambda c: (
@@ -126,8 +129,9 @@ def mock_script() -> dict[str, RoleScript]:
                 Step("kill_agent", _action("kill", 1)),
                 Step("quarantine_agent", _action("quarantine", 0)),
                 Step("quarantine_agent", _action("quarantine", 1)),
+                Step("write_todos", plan(labels, 4)),
                 Step("write_file", _summary_file),
-                Step("write_todos", {"todos": [dict(x, status="completed") for x in todos]}),
+                Step("write_todos", plan(labels, len(labels))),
             ],
             final=_final,
         ),

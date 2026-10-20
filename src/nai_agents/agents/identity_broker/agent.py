@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 
 from nai_agents.agents.identity_broker import tools as t
-from nai_agents.core.mock import MockContext, RoleScript, Step
+from nai_agents.core.mock import MockContext, RoleScript, Step, plan
 from nai_agents.core.registry import AgentSpec
 
 SYSTEM_PROMPT = """You are the Agent Identity & Permissions Broker. Other AI agents ask you for access; you
@@ -136,11 +136,13 @@ def mock_script() -> dict[str, RoleScript]:
             "Record decisions",
         )
     ]
+    labels = [t["content"] for t in todos]
     return {
         "identity-broker": RoleScript(
             steps=[
-                Step("write_todos", {"todos": todos}),
+                Step("write_todos", plan(labels, 0)),
                 Step("list_pending_requests", {}),
+                Step("write_todos", plan(labels, 1)),
                 *[Step("review_request", _review_step(i)) for i in range(5)],
                 Step(
                     "task",
@@ -151,10 +153,12 @@ def mock_script() -> dict[str, RoleScript]:
                     },
                 ),
                 Step("issue_credential", _issue_auto),
+                Step("write_todos", plan(labels, 3)),
                 Step("issue_privileged_credential", _issue_priv),
                 Step("write_file", _decisions_file),
+                Step("write_todos", plan(labels, 4)),
                 Step("audit_log", {"limit": 20}),
-                Step("write_todos", {"todos": [dict(x, status="completed") for x in todos]}),
+                Step("write_todos", plan(labels, len(labels))),
             ],
             final=_final,
         ),

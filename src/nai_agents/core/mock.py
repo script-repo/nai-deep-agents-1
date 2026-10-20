@@ -249,3 +249,12 @@ class SimulatedAnswerModel(BaseChatModel):
             response_metadata={"simulated_latency_ms": self.latency_ms * (0.75 + roll / 2)},
         )
         return ChatResult(generations=[ChatGeneration(message=msg)])
+
+
+def plan(labels: list[str], done: int) -> dict[str, Any]:
+    """`write_todos` args with the first `done` items completed and the next one in progress."""
+    todos = []
+    for i, label in enumerate(labels):
+        status = "completed" if i < done else "in_progress" if i == done else "pending"
+        todos.append({"content": label, "status": status})
+    return {"todos": todos}
