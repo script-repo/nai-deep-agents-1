@@ -1,0 +1,9 @@
+tool,vendor,category,team,seats,active_users_30d,monthly_cost_usd
+GitHub Copilot Business,GitHub,coding-assistant,engineering,120,104,2280
+GitHub Copilot Business,GitHub,coding-assistant,finance,25,2,475
+Cursor Business,Anysphere,coding-assistant,engineering,40,37,1600
+ChatGPT Team,OpenAI,chat-assistant,marketing,30,21,900
+Claude Team,Anthropic,chat-assistant,marketing,30,9,900
+Claude Team,Anthropic,chat-assistant,legal,15,14,450
+Gemini for Workspace,Google,chat-assistant,sales,60,18,1800
+Otter.ai Business,Otter,meeting-notes,sales,40,35,800

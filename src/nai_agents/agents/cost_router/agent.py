@@ -53,12 +53,21 @@ def _routes(ctx: MockContext) -> dict[str, str]:
 def _report(ctx: MockContext) -> dict[str, str]:
     routes = _routes(ctx)
     savings = ctx.last_json("estimate_savings") or {}
-    lines = ["# Routing report", "", "_Generated in mock mode with simulated models._", "",
-             "| Category | Proposed model |", "|---|---|"]
+    lines = [
+        "# Routing report",
+        "",
+        "_Generated in mock mode with simulated models._",
+        "",
+        "| Category | Proposed model |",
+        "|---|---|",
+    ]
     lines += [f"| {c} | {m} |" for c, m in routes.items()]
-    lines += ["", f"Monthly spend now: ${savings.get('monthly_total_now', '?')}",
-              f"Monthly spend proposed: ${savings.get('monthly_total_proposed', '?')}",
-              f"Savings: ${savings.get('monthly_savings', '?')} ({savings.get('savings_pct', '?')}%)"]
+    lines += [
+        "",
+        f"Monthly spend now: ${savings.get('monthly_total_now', '?')}",
+        f"Monthly spend proposed: ${savings.get('monthly_total_proposed', '?')}",
+        f"Savings: ${savings.get('monthly_savings', '?')} ({savings.get('savings_pct', '?')}%)",
+    ]
     return {"file_path": "/routing-report.md", "content": "\n".join(lines) + "\n"}
 
 
@@ -69,8 +78,11 @@ def _final(ctx: MockContext) -> str:
     lines = ["Here is the routing recommendation (simulated models, mock mode):", ""]
     lines += [f"- **{cat}** → `{model}`" for cat, model in routes.items()]
     if savings:
-        lines += ["", f"Estimated monthly spend drops from **${savings['monthly_total_now']:,}** to "
-                      f"**${savings['monthly_total_proposed']:,}** ({savings['savings_pct']}% saved)."]
+        lines += [
+            "",
+            f"Estimated monthly spend drops from **${savings['monthly_total_now']:,}** to "
+            f"**${savings['monthly_total_proposed']:,}** ({savings['savings_pct']}% saved).",
+        ]
     if applied:
         lines += ["", "Applied routes: " + ", ".join(f"{a['category']} → {a['model']}" for a in applied)]
     else:
@@ -86,8 +98,10 @@ def _eval_runner_final(ctx: MockContext) -> str:
     if not best:
         return f"Category {data.get('category')}: no model met the threshold."
     r = rows[best]
-    return (f"Category {data.get('category')}: cheapest passing model: {best} "
-            f"(pass rate {r['pass_rate']:.0%}, ${r['cost_per_request_usd']:.6f}/request, p50 {r['p50_latency_ms']} ms).")
+    return (
+        f"Category {data.get('category')}: cheapest passing model: {best} "
+        f"(pass rate {r['pass_rate']:.0%}, ${r['cost_per_request_usd']:.6f}/request, p50 {r['p50_latency_ms']} ms)."
+    )
 
 
 def mock_script() -> dict[str, RoleScript]:
@@ -104,16 +118,25 @@ def mock_script() -> dict[str, RoleScript]:
             steps=[
                 Step("write_todos", {"todos": todos}),
                 Step("list_models", {}),
-                Step("task", {"subagent_type": "eval-runner",
-                              "description": "Find the cheapest passing model for the extraction category."}),
+                Step(
+                    "task",
+                    {
+                        "subagent_type": "eval-runner",
+                        "description": "Find the cheapest passing model for the extraction category.",
+                    },
+                ),
                 Step("compare_models", {"category": "classification"}),
                 Step("compare_models", {"category": "reasoning"}),
                 Step("estimate_savings", lambda c: {"routes_json": json.dumps(_routes(c))}),
                 Step("write_file", _report),
-                Step("apply_routing", lambda c: {
-                    "category": "classification",
-                    "model_name": _routes(c).get("classification", "mock-medium"),
-                    "reason": "Cheapest model meeting the classification threshold in evals."}),
+                Step(
+                    "apply_routing",
+                    lambda c: {
+                        "category": "classification",
+                        "model_name": _routes(c).get("classification", "mock-medium"),
+                        "reason": "Cheapest model meeting the classification threshold in evals.",
+                    },
+                ),
                 Step("write_todos", {"todos": done}),
             ],
             final=_final,
@@ -132,12 +155,14 @@ SPEC = AgentSpec(
     icon="route",
     system_prompt=SYSTEM_PROMPT,
     tools=t.TOOLS,
-    subagents=[{
-        "name": "eval-runner",
-        "description": "Evaluates all candidate models on ONE task category and reports the cheapest passing one.",
-        "system_prompt": EVAL_RUNNER_PROMPT,
-        "tools": [t.compare_models, t.run_eval, t.list_models],
-    }],
+    subagents=[
+        {
+            "name": "eval-runner",
+            "description": "Evaluates all candidate models on ONE task category and reports the cheapest passing one.",
+            "system_prompt": EVAL_RUNNER_PROMPT,
+            "tools": [t.compare_models, t.run_eval, t.list_models],
+        }
+    ],
     interrupt_on={"apply_routing": {"allowed_decisions": ["approve", "edit", "reject"]}},
     example_prompts=[
         "Find the cheapest model for each task category in our general eval suite and estimate the savings.",

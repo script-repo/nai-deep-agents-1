@@ -82,9 +82,7 @@ def _text_of(content: Any) -> str:
     if isinstance(content, str):
         return content
     if isinstance(content, list):
-        return " ".join(
-            b.get("text", "") if isinstance(b, dict) else str(b) for b in content
-        )
+        return " ".join(b.get("text", "") if isinstance(b, dict) else str(b) for b in content)
     return str(content)
 
 
@@ -157,21 +155,40 @@ class ScriptedChatModel(BaseChatModel):
         text = (script.final or default_final)(ctx)
         return AIMessage(content=text, usage_metadata=_usage(messages, text))
 
-    def _generate(self, messages: list[BaseMessage], stop: list[str] | None = None,
-                  run_manager: Any = None, **kwargs: Any) -> ChatResult:
+    def _generate(
+        self,
+        messages: list[BaseMessage],
+        stop: list[str] | None = None,
+        run_manager: Any = None,
+        **kwargs: Any,
+    ) -> ChatResult:
         return ChatResult(generations=[ChatGeneration(message=self._next_message(messages))])
 
-    def _stream(self, messages: list[BaseMessage], stop: list[str] | None = None,
-                run_manager: Any = None, **kwargs: Any) -> Iterator[ChatGenerationChunk]:
+    def _stream(
+        self,
+        messages: list[BaseMessage],
+        stop: list[str] | None = None,
+        run_manager: Any = None,
+        **kwargs: Any,
+    ) -> Iterator[ChatGenerationChunk]:
         message = self._next_message(messages)
         if message.tool_calls:
             tc = message.tool_calls[0]
-            yield ChatGenerationChunk(message=AIMessageChunk(
-                content="",
-                tool_call_chunks=[{"name": tc["name"], "args": json.dumps(tc["args"]), "id": tc["id"],
-                                   "index": 0, "type": "tool_call_chunk"}],
-                usage_metadata=message.usage_metadata,
-            ))
+            yield ChatGenerationChunk(
+                message=AIMessageChunk(
+                    content="",
+                    tool_call_chunks=[
+                        {
+                            "name": tc["name"],
+                            "args": json.dumps(tc["args"]),
+                            "id": tc["id"],
+                            "index": 0,
+                            "type": "tool_call_chunk",
+                        }
+                    ],
+                    usage_metadata=message.usage_metadata,
+                )
+            )
             return
         for piece in re.findall(r"\s*\S+", message.content) or [""]:
             chunk = ChatGenerationChunk(message=AIMessageChunk(content=piece))
@@ -209,8 +226,13 @@ class SimulatedAnswerModel(BaseChatModel):
     def _llm_type(self) -> str:
         return "nai-mock-candidate"
 
-    def _generate(self, messages: list[BaseMessage], stop: list[str] | None = None,
-                  run_manager: Any = None, **kwargs: Any) -> ChatResult:
+    def _generate(
+        self,
+        messages: list[BaseMessage],
+        stop: list[str] | None = None,
+        run_manager: Any = None,
+        **kwargs: Any,
+    ) -> ChatResult:
         prompt = _text_of(messages[-1].content) if messages else ""
         expected = self.answers.get(prompt.strip())
         roll = stable_fraction(self.model_name, self.version, prompt)
@@ -221,6 +243,9 @@ class SimulatedAnswerModel(BaseChatModel):
             text = f"I am not sure. Perhaps {expected[::-1][:12] or 'unknown'}."
         else:
             text = f"[{self.model_name}] response to: {prompt[:80]}"
-        msg = AIMessage(content=text, usage_metadata=_usage(messages, text),
-                        response_metadata={"simulated_latency_ms": self.latency_ms * (0.75 + roll / 2)})
+        msg = AIMessage(
+            content=text,
+            usage_metadata=_usage(messages, text),
+            response_metadata={"simulated_latency_ms": self.latency_ms * (0.75 + roll / 2)},
+        )
         return ChatResult(generations=[ChatGeneration(message=msg)])

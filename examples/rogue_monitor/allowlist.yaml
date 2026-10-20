@@ -1,0 +1,5 @@
+# Egress the monitored agents are allowed to reach, and limits used by the detectors.
+allowed_domains: [internal.example.com, api.anthropic.com, chat.internal-ai.example.com, pypi.org, github.com]
+max_bytes_out_per_request: 1000000
+dns_label_max_len: 30
+dns_burst_threshold: 8

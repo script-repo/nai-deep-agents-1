@@ -1,0 +1,13 @@
+# Company AI policy inputs used for risk scoring and guidance.
+approved_alternatives:
+  chat-assistant: "Internal AI Chat (https://chat.internal-ai.example.com), on our own Nutanix Enterprise AI cluster"
+  search-assistant: "Internal AI Chat with web search enabled"
+  coding-assistant: "GitHub Copilot Business (request a seat in the IT portal)"
+  llm-api: "The company LLM gateway (request a project key in the developer portal)"
+  meeting-notes: "Teams Premium recap (already licensed)"
+  writing-assistant: "Internal AI Chat 'Rewrite' preset"
+  document-ai: "Internal AI Chat document upload (data stays on-prem)"
+  model-hub: "The internal model registry mirror; Hugging Face downloads are allowed via the proxy for engineering"
+sensitive_departments: [finance, legal, hr]
+large_upload_bytes: 1000000
+risky_oauth_scopes: [drive, mail, gmail, calendar, files.readwrite, offline_access, admin]

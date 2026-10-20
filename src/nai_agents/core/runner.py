@@ -80,7 +80,11 @@ async def stream_events(
             return "main"
         key = ns[0]
         if key not in ns_names:
-            task = pending_tasks.popleft() if pending_tasks else {"id": key, "name": "subagent", "description": ""}
+            task = (
+                pending_tasks.popleft()
+                if pending_tasks
+                else {"id": key, "name": "subagent", "description": ""}
+            )
             ns_names[key] = task
         return ns_names[key]["name"]
 
@@ -115,28 +119,49 @@ async def stream_events(
                             if tc.get("id") in seen_calls:
                                 continue
                             seen_calls.add(tc.get("id") or "")
-                            yield {"type": "tool_call", "id": tc.get("id"), "name": tc["name"],
-                                   "args": tc.get("args", {}), "agent": agent}
+                            yield {
+                                "type": "tool_call",
+                                "id": tc.get("id"),
+                                "name": tc["name"],
+                                "args": tc.get("args", {}),
+                                "agent": agent,
+                            }
                             if tc["name"] == "task":
-                                task = {"id": tc.get("id"), "name": tc["args"].get("subagent_type", "subagent"),
-                                        "description": tc["args"].get("description", "")}
+                                task = {
+                                    "id": tc.get("id"),
+                                    "name": tc["args"].get("subagent_type", "subagent"),
+                                    "description": tc["args"].get("description", ""),
+                                }
                                 pending_tasks.append(task)
                                 yield {"type": "subagent", "status": "start", **task}
                     elif isinstance(msg, ToolMessage):
                         content = _text(msg.content)
-                        yield {"type": "tool_result", "id": msg.tool_call_id, "name": msg.name,
-                               "content": content[:MAX_TOOL_CONTENT], "agent": agent,
-                               "status": getattr(msg, "status", "success")}
+                        yield {
+                            "type": "tool_result",
+                            "id": msg.tool_call_id,
+                            "name": msg.name,
+                            "content": content[:MAX_TOOL_CONTENT],
+                            "agent": agent,
+                            "status": getattr(msg, "status", "success"),
+                        }
                         if msg.name == "task" and agent == "main":
                             sub = next((t for t in ns_names.values() if t["id"] == msg.tool_call_id), None)
-                            yield {"type": "subagent", "status": "end", "id": msg.tool_call_id,
-                                   "name": sub["name"] if sub else "subagent", "description": "",
-                                   "result": content[:1000]}
+                            yield {
+                                "type": "subagent",
+                                "status": "end",
+                                "id": msg.tool_call_id,
+                                "name": sub["name"] if sub else "subagent",
+                                "description": "",
+                                "result": content[:1000],
+                            }
                 if agent == "main" and update.get("todos") is not None:
                     yield {"type": "todos", "todos": update["todos"]}
                 if update.get("files"):
-                    yield {"type": "files", "agent": agent,
-                           "files": {p: file_content(v) for p, v in update["files"].items() if v is not None}}
+                    yield {
+                        "type": "files",
+                        "agent": agent,
+                        "files": {p: file_content(v) for p, v in update["files"].items() if v is not None},
+                    }
     except Exception as exc:
         yield {"type": "error", "message": f"{type(exc).__name__}: {exc}"}
         return
@@ -162,12 +187,20 @@ def serialize_message(msg: BaseMessage) -> dict[str, Any]:
     if isinstance(msg, HumanMessage):
         return {"role": "user", "content": _text(msg.content)}
     if isinstance(msg, AIMessage):
-        return {"role": "assistant", "content": _text(msg.content),
-                "tool_calls": [{"id": tc.get("id"), "name": tc["name"], "args": tc.get("args", {})}
-                               for tc in msg.tool_calls]}
+        return {
+            "role": "assistant",
+            "content": _text(msg.content),
+            "tool_calls": [
+                {"id": tc.get("id"), "name": tc["name"], "args": tc.get("args", {})} for tc in msg.tool_calls
+            ],
+        }
     if isinstance(msg, ToolMessage):
-        return {"role": "tool", "name": msg.name, "tool_call_id": msg.tool_call_id,
-                "content": _text(msg.content)[:MAX_TOOL_CONTENT]}
+        return {
+            "role": "tool",
+            "name": msg.name,
+            "tool_call_id": msg.tool_call_id,
+            "content": _text(msg.content)[:MAX_TOOL_CONTENT],
+        }
     return {"role": msg.type, "content": _text(msg.content)}
 
 

@@ -1,0 +1,16 @@
+# Known AI services: domain suffix -> tool facts. `sanctioned: true` means approved by your company.
+# Facts about vendors' data handling are ILLUSTRATIVE; verify against each vendor's current terms.
+tools:
+  - {domain: chat.internal-ai.example.com, tool: Internal AI Chat (NAI), vendor: internal, category: chat-assistant, sanctioned: true, trains_on_inputs: false, region: on-prem}
+  - {domain: copilot.github.com, tool: GitHub Copilot Business, vendor: GitHub, category: coding-assistant, sanctioned: true, trains_on_inputs: false, region: us}
+  - {domain: api.anthropic.com, tool: Anthropic API, vendor: Anthropic, category: llm-api, sanctioned: true, trains_on_inputs: false, region: us}
+  - {domain: chatgpt.com, tool: ChatGPT (personal), vendor: OpenAI, category: chat-assistant, sanctioned: false, trains_on_inputs: true, region: us}
+  - {domain: gemini.google.com, tool: Gemini (personal), vendor: Google, category: chat-assistant, sanctioned: false, trains_on_inputs: true, region: us}
+  - {domain: deepseek.com, tool: DeepSeek Chat, vendor: DeepSeek, category: chat-assistant, sanctioned: false, trains_on_inputs: true, region: cn}
+  - {domain: perplexity.ai, tool: Perplexity, vendor: Perplexity, category: search-assistant, sanctioned: false, trains_on_inputs: true, region: us}
+  - {domain: huggingface.co, tool: Hugging Face Hub, vendor: Hugging Face, category: model-hub, sanctioned: false, trains_on_inputs: false, region: us}
+  - {domain: api.openai.com, tool: OpenAI API (unmanaged key), vendor: OpenAI, category: llm-api, sanctioned: false, trains_on_inputs: false, region: us}
+  - {domain: otter.ai, tool: Otter.ai, vendor: Otter, category: meeting-notes, sanctioned: false, trains_on_inputs: true, region: us}
+  - {domain: tldv.io, tool: tl;dv, vendor: tldv, category: meeting-notes, sanctioned: false, trains_on_inputs: true, region: eu}
+  - {domain: quillbot.com, tool: QuillBot, vendor: QuillBot, category: writing-assistant, sanctioned: false, trains_on_inputs: true, region: us}
+  - {domain: pdf-ai-summarizer.example.net, tool: PDF AI Summarizer (unknown vendor), vendor: unknown, category: document-ai, sanctioned: false, trains_on_inputs: true, region: unknown}

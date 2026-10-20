@@ -17,9 +17,15 @@ def _serve(args: argparse.Namespace) -> None:
     from nai_agents.core.settings import get_settings
 
     s = get_settings()
-    uvicorn.run("nai_agents.server.app:get_app", factory=True, host=args.host or s.app_host,
-                port=args.port or s.app_port, log_level=s.app_log_level, proxy_headers=True,
-                forwarded_allow_ips=args.forwarded_allow_ips)
+    uvicorn.run(
+        "nai_agents.server.app:get_app",
+        factory=True,
+        host=args.host or s.app_host,
+        port=args.port or s.app_port,
+        log_level=s.app_log_level,
+        proxy_headers=True,
+        forwarded_allow_ips=args.forwarded_allow_ips,
+    )
 
 
 def _list(_: argparse.Namespace) -> None:
@@ -51,7 +57,9 @@ async def _run_async(args: argparse.Namespace) -> int:
                 if t == "token" and ev["agent"] == "main":
                     print(ev["text"], end="", flush=True)
                 elif t == "tool_call":
-                    print(f"\n  · [{ev['agent']}] {ev['name']}({json.dumps(ev['args'])[:160]})", file=sys.stderr)
+                    print(
+                        f"\n  · [{ev['agent']}] {ev['name']}({json.dumps(ev['args'])[:160]})", file=sys.stderr
+                    )
                 elif t == "interrupt":
                     pending = ev
                 elif t == "error":
@@ -62,15 +70,20 @@ async def _run_async(args: argparse.Namespace) -> int:
                 return 0
             decisions = []
             for action in pending["actions"]:
-                print(f"\n\n⚠ Approval needed: {action['name']}({json.dumps(action['args'])})", file=sys.stderr)
+                print(
+                    f"\n\n⚠ Approval needed: {action['name']}({json.dumps(action['args'])})", file=sys.stderr
+                )
                 if args.yes:
                     answer = "y"
                 elif args.no:
                     answer = "n"
                 else:
                     answer = input("Approve? [y/N] ").strip().lower()
-                decisions.append({"type": "approve"} if answer.startswith("y")
-                                 else {"type": "reject", "message": "Rejected by the operator."})
+                decisions.append(
+                    {"type": "approve"}
+                    if answer.startswith("y")
+                    else {"type": "reject", "message": "Rejected by the operator."}
+                )
             graph_input = resume_command(decisions)
 
 

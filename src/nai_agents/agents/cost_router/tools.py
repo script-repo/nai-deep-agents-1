@@ -29,8 +29,15 @@ def list_eval_suites() -> str:
     out = []
     for path in sorted((get_settings().examples_dir / "evals").glob("*.y*ml")):
         suite = load_suite(path)
-        out.append({"path": f"evals/{path.name}", "name": suite.name, "cases": len(suite.cases),
-                    "categories": suite.categories(), "threshold": suite.threshold})
+        out.append(
+            {
+                "path": f"evals/{path.name}",
+                "name": suite.name,
+                "cases": len(suite.cases),
+                "categories": suite.categories(),
+                "threshold": suite.threshold,
+            }
+        )
     return to_json(out)
 
 
@@ -67,18 +74,29 @@ def compare_models(category: str = "", suite_path: str = DEFAULT_SUITE, models: 
         report = run_suite(entry, suite)
         summary = report.summary() | {"category": category or "all"}
         _record(summary)
-        rows.append({
-            "model": entry.name, "pass_rate": report.pass_rate, "meets_threshold": report.meets_threshold,
-            "cost_per_request_usd": round(report.cost_usd / max(report.total, 1), 8),
-            "p50_latency_ms": report.p50_latency_ms, "p95_latency_ms": report.p95_latency_ms,
-        })
+        rows.append(
+            {
+                "model": entry.name,
+                "pass_rate": report.pass_rate,
+                "meets_threshold": report.meets_threshold,
+                "cost_per_request_usd": round(report.cost_usd / max(report.total, 1), 8),
+                "p50_latency_ms": report.p50_latency_ms,
+                "p95_latency_ms": report.p95_latency_ms,
+            }
+        )
     rows.sort(key=lambda r: r["cost_per_request_usd"])
     passing = [r for r in rows if r["meets_threshold"]]
-    return to_json({
-        "category": category or "all", "threshold": suite.threshold, "results": rows,
-        "cheapest_passing": passing[0]["model"] if passing else None,
-        "note": None if passing else "No model met the threshold; keep the strongest model or improve prompts.",
-    })
+    return to_json(
+        {
+            "category": category or "all",
+            "threshold": suite.threshold,
+            "results": rows,
+            "cheapest_passing": passing[0]["model"] if passing else None,
+            "note": None
+            if passing
+            else "No model met the threshold; keep the strongest model or improve prompts.",
+        }
+    )
 
 
 def _rules() -> dict:
@@ -98,9 +116,14 @@ def route_task(task: str) -> str:
     catalog = load_catalog()
     fallback = max(catalog, key=lambda m: m.output_per_mtok).name
     route = routes.get(category)
-    return to_json({"category": category, "keyword_scores": scores,
-                    "model": route["model"] if route else fallback,
-                    "source": "routing table" if route else "fallback (no approved route yet)"})
+    return to_json(
+        {
+            "category": category,
+            "keyword_scores": scores,
+            "model": route["model"] if route else fallback,
+            "source": "routing table" if route else "fallback (no approved route yet)",
+        }
+    )
 
 
 def show_routes() -> str:
@@ -113,11 +136,22 @@ def apply_routing(category: str, model_name: str, reason: str) -> str:
     find_model(model_name)
     routes = load_json_state(ROUTES_FILE, {})
     previous = routes.get(category, {}).get("model")
-    routes[category] = {"model": model_name, "reason": reason, "approved_at": datetime.now(UTC).isoformat(),
-                        "previous": previous}
+    routes[category] = {
+        "model": model_name,
+        "reason": reason,
+        "approved_at": datetime.now(UTC).isoformat(),
+        "previous": previous,
+    }
     path = save_json_state(ROUTES_FILE, routes)
-    return to_json({"status": "applied", "category": category, "model": model_name, "previous": previous,
-                    "routes_file": str(Path(path).name)})
+    return to_json(
+        {
+            "status": "applied",
+            "category": category,
+            "model": model_name,
+            "previous": previous,
+            "routes_file": str(Path(path).name),
+        }
+    )
 
 
 def estimate_savings(routes_json: str = "", workload_path: str = "cost_router/workload.csv") -> str:
@@ -128,8 +162,11 @@ def estimate_savings(routes_json: str = "", workload_path: str = "cost_router/wo
     """
     import json
 
-    proposed = json.loads(routes_json) if routes_json.strip() else {
-        k: v["model"] for k, v in load_json_state(ROUTES_FILE, {}).items()}
+    proposed = (
+        json.loads(routes_json)
+        if routes_json.strip()
+        else {k: v["model"] for k, v in load_json_state(ROUTES_FILE, {}).items()}
+    )
     catalog = load_catalog()
     rows, now_total, new_total = [], 0.0, 0.0
     for row in csv.DictReader(io.StringIO(read_text(workload_path))):
@@ -140,13 +177,33 @@ def estimate_savings(routes_json: str = "", workload_path: str = "cost_router/wo
         now, new = current.cost(tin, tout), target.cost(tin, tout)
         now_total += now
         new_total += new
-        rows.append({"category": row["category"], "current_model": current.name, "proposed_model": target.name,
-                     "monthly_cost_now": round(now, 2), "monthly_cost_proposed": round(new, 2)})
-    return to_json({"rows": rows, "monthly_total_now": round(now_total, 2),
-                    "monthly_total_proposed": round(new_total, 2),
-                    "monthly_savings": round(now_total - new_total, 2),
-                    "savings_pct": round((1 - new_total / now_total) * 100, 1) if now_total else 0.0})
+        rows.append(
+            {
+                "category": row["category"],
+                "current_model": current.name,
+                "proposed_model": target.name,
+                "monthly_cost_now": round(now, 2),
+                "monthly_cost_proposed": round(new, 2),
+            }
+        )
+    return to_json(
+        {
+            "rows": rows,
+            "monthly_total_now": round(now_total, 2),
+            "monthly_total_proposed": round(new_total, 2),
+            "monthly_savings": round(now_total - new_total, 2),
+            "savings_pct": round((1 - new_total / now_total) * 100, 1) if now_total else 0.0,
+        }
+    )
 
 
-TOOLS = [list_models, list_eval_suites, run_eval, compare_models, route_task, show_routes, apply_routing,
-         estimate_savings]
+TOOLS = [
+    list_models,
+    list_eval_suites,
+    run_eval,
+    compare_models,
+    route_task,
+    show_routes,
+    apply_routing,
+    estimate_savings,
+]

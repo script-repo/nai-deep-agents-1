@@ -1,0 +1,12 @@
+{"requests": [
+  {"id": "req-101", "agent": "release-bot", "scopes": ["repo:read", "repo:write"], "ttl_minutes": 60,
+   "task": "Cut release 2.4.1 and push the changelog commit", "justification": "Needs to push the release branch"},
+  {"id": "req-102", "agent": "support-agent", "scopes": ["crm:export", "email:send"], "ttl_minutes": 240,
+   "task": "Reply to 40 customers about the outage", "justification": "Look up each customer and email them"},
+  {"id": "req-103", "agent": "data-analyst", "scopes": ["db:prod:read"], "ttl_minutes": 120,
+   "task": "Weekly churn dashboard refresh", "justification": "Query the orders table"},
+  {"id": "req-104", "agent": "infra-agent", "scopes": ["cloud:iam:admin", "cloud:vm:operate"], "ttl_minutes": 60,
+   "task": "Restart the stuck build VMs", "justification": "Might need to fix permissions"},
+  {"id": "req-105", "agent": "unknown-agent-7", "scopes": ["*"], "ttl_minutes": 1440,
+   "task": "General automation", "justification": "Make things easier"}
+]}

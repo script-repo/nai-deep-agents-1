@@ -51,8 +51,10 @@ class SqliteThreadStore:
 
     def create(self, agent_id: str, owner: str, title: str = "New chat") -> ThreadMeta:
         meta = ThreadMeta(str(uuid.uuid4()), agent_id, owner, title, _now(), _now())
-        self._q("INSERT INTO nda_threads VALUES (?,?,?,?,?,?,?)",
-                (meta.id, meta.agent_id, meta.owner, meta.title, meta.created_at, meta.updated_at, meta.status))
+        self._q(
+            "INSERT INTO nda_threads VALUES (?,?,?,?,?,?,?)",
+            (meta.id, meta.agent_id, meta.owner, meta.title, meta.created_at, meta.updated_at, meta.status),
+        )
         return meta
 
     def get(self, thread_id: str) -> ThreadMeta | None:
@@ -61,16 +63,20 @@ class SqliteThreadStore:
 
     def list(self, owner: str, agent_id: str | None = None, limit: int = 200) -> list[ThreadMeta]:
         if agent_id:
-            rows = self._q("SELECT * FROM nda_threads WHERE owner=? AND agent_id=? ORDER BY updated_at DESC LIMIT ?",
-                           (owner, agent_id, limit))
+            rows = self._q(
+                "SELECT * FROM nda_threads WHERE owner=? AND agent_id=? ORDER BY updated_at DESC LIMIT ?",
+                (owner, agent_id, limit),
+            )
         else:
-            rows = self._q("SELECT * FROM nda_threads WHERE owner=? ORDER BY updated_at DESC LIMIT ?", (owner, limit))
+            rows = self._q(
+                "SELECT * FROM nda_threads WHERE owner=? ORDER BY updated_at DESC LIMIT ?", (owner, limit)
+            )
         return [ThreadMeta(*r) for r in rows]
 
     def update(self, thread_id: str, **fields: str) -> None:
         fields["updated_at"] = _now()
         cols = ", ".join(f"{k}=?" for k in fields)
-        self._q(f"UPDATE nda_threads SET {cols} WHERE id=?", (*fields.values(), thread_id))  # noqa: S608
+        self._q(f"UPDATE nda_threads SET {cols} WHERE id=?", (*fields.values(), thread_id))
 
     def delete(self, thread_id: str) -> None:
         self._q("DELETE FROM nda_threads WHERE id=?", (thread_id,))

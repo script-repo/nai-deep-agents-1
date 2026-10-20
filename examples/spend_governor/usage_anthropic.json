@@ -1,0 +1,2932 @@
+{
+ "data": [
+  {
+   "usage_date": "2026-08-01",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 423,
+   "input_tokens": 634500,
+   "output_tokens": 190350,
+   "cost": {
+    "amount": 4.7587,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-01",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1364,
+   "input_tokens": 4774000,
+   "output_tokens": 954800,
+   "cost": {
+    "amount": 28.644,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-01",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 259,
+   "input_tokens": 2331000,
+   "output_tokens": 310800,
+   "cost": {
+    "amount": 19.425,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-01",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 58,
+   "input_tokens": 696000,
+   "output_tokens": 34800,
+   "cost": {
+    "amount": 0.87,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-02",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 395,
+   "input_tokens": 592500,
+   "output_tokens": 177750,
+   "cost": {
+    "amount": 4.4437,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-02",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1370,
+   "input_tokens": 4795000,
+   "output_tokens": 959000,
+   "cost": {
+    "amount": 28.77,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-02",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 234,
+   "input_tokens": 2106000,
+   "output_tokens": 280800,
+   "cost": {
+    "amount": 17.55,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-02",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 68,
+   "input_tokens": 816000,
+   "output_tokens": 40800,
+   "cost": {
+    "amount": 1.02,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-03",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 922,
+   "input_tokens": 1383000,
+   "output_tokens": 414900,
+   "cost": {
+    "amount": 10.3725,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-03",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3076,
+   "input_tokens": 10766000,
+   "output_tokens": 2153200,
+   "cost": {
+    "amount": 64.596,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-03",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 518,
+   "input_tokens": 4662000,
+   "output_tokens": 621600,
+   "cost": {
+    "amount": 38.85,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-03",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 137,
+   "input_tokens": 1644000,
+   "output_tokens": 82200,
+   "cost": {
+    "amount": 2.055,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-04",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 878,
+   "input_tokens": 1317000,
+   "output_tokens": 395100,
+   "cost": {
+    "amount": 9.8775,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-04",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3063,
+   "input_tokens": 10720500,
+   "output_tokens": 2144100,
+   "cost": {
+    "amount": 64.323,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-04",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 610,
+   "input_tokens": 5490000,
+   "output_tokens": 732000,
+   "cost": {
+    "amount": 45.75,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-04",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 158,
+   "input_tokens": 1896000,
+   "output_tokens": 94800,
+   "cost": {
+    "amount": 2.37,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-05",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 865,
+   "input_tokens": 1297500,
+   "output_tokens": 389250,
+   "cost": {
+    "amount": 9.7312,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-05",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2606,
+   "input_tokens": 9121000,
+   "output_tokens": 1824200,
+   "cost": {
+    "amount": 54.726,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-05",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 520,
+   "input_tokens": 4680000,
+   "output_tokens": 624000,
+   "cost": {
+    "amount": 39.0,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-05",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 136,
+   "input_tokens": 1632000,
+   "output_tokens": 81600,
+   "cost": {
+    "amount": 2.04,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-06",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 849,
+   "input_tokens": 1273500,
+   "output_tokens": 382050,
+   "cost": {
+    "amount": 9.5512,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-06",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2957,
+   "input_tokens": 10349500,
+   "output_tokens": 2069900,
+   "cost": {
+    "amount": 62.097,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-06",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 563,
+   "input_tokens": 5067000,
+   "output_tokens": 675600,
+   "cost": {
+    "amount": 42.225,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-06",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 163,
+   "input_tokens": 1956000,
+   "output_tokens": 97800,
+   "cost": {
+    "amount": 2.445,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-07",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 920,
+   "input_tokens": 1380000,
+   "output_tokens": 414000,
+   "cost": {
+    "amount": 10.35,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-07",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3337,
+   "input_tokens": 11679500,
+   "output_tokens": 2335900,
+   "cost": {
+    "amount": 70.077,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-07",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 641,
+   "input_tokens": 5769000,
+   "output_tokens": 769200,
+   "cost": {
+    "amount": 48.075,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-07",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 140,
+   "input_tokens": 1680000,
+   "output_tokens": 84000,
+   "cost": {
+    "amount": 2.1,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-08",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 436,
+   "input_tokens": 654000,
+   "output_tokens": 196200,
+   "cost": {
+    "amount": 4.905,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-08",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1345,
+   "input_tokens": 4707500,
+   "output_tokens": 941500,
+   "cost": {
+    "amount": 28.245,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-08",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 232,
+   "input_tokens": 2088000,
+   "output_tokens": 278400,
+   "cost": {
+    "amount": 17.4,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-08",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 70,
+   "input_tokens": 840000,
+   "output_tokens": 42000,
+   "cost": {
+    "amount": 1.05,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-09",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 450,
+   "input_tokens": 675000,
+   "output_tokens": 202500,
+   "cost": {
+    "amount": 5.0625,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-09",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1429,
+   "input_tokens": 5001500,
+   "output_tokens": 1000300,
+   "cost": {
+    "amount": 30.009,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-09",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 277,
+   "input_tokens": 2493000,
+   "output_tokens": 332400,
+   "cost": {
+    "amount": 20.775,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-09",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 69,
+   "input_tokens": 828000,
+   "output_tokens": 41400,
+   "cost": {
+    "amount": 1.035,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-10",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 1020,
+   "input_tokens": 1530000,
+   "output_tokens": 459000,
+   "cost": {
+    "amount": 11.475,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-10",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3147,
+   "input_tokens": 11014500,
+   "output_tokens": 2202900,
+   "cost": {
+    "amount": 66.087,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-10",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 520,
+   "input_tokens": 4680000,
+   "output_tokens": 624000,
+   "cost": {
+    "amount": 39.0,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-10",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 159,
+   "input_tokens": 1908000,
+   "output_tokens": 95400,
+   "cost": {
+    "amount": 2.385,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-11",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 885,
+   "input_tokens": 1327500,
+   "output_tokens": 398250,
+   "cost": {
+    "amount": 9.9563,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-11",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3348,
+   "input_tokens": 11718000,
+   "output_tokens": 2343600,
+   "cost": {
+    "amount": 70.308,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-11",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 572,
+   "input_tokens": 5148000,
+   "output_tokens": 686400,
+   "cost": {
+    "amount": 42.9,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-11",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 169,
+   "input_tokens": 2028000,
+   "output_tokens": 101400,
+   "cost": {
+    "amount": 2.535,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-12",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 898,
+   "input_tokens": 1347000,
+   "output_tokens": 404100,
+   "cost": {
+    "amount": 10.1025,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-12",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2808,
+   "input_tokens": 9828000,
+   "output_tokens": 1965600,
+   "cost": {
+    "amount": 58.968,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-12",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 642,
+   "input_tokens": 5778000,
+   "output_tokens": 770400,
+   "cost": {
+    "amount": 48.15,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-12",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 145,
+   "input_tokens": 1740000,
+   "output_tokens": 87000,
+   "cost": {
+    "amount": 2.175,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-13",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 809,
+   "input_tokens": 1213500,
+   "output_tokens": 364050,
+   "cost": {
+    "amount": 9.1013,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-13",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2800,
+   "input_tokens": 9800000,
+   "output_tokens": 1960000,
+   "cost": {
+    "amount": 58.8,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-13",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 534,
+   "input_tokens": 4806000,
+   "output_tokens": 640800,
+   "cost": {
+    "amount": 40.05,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-13",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 146,
+   "input_tokens": 1752000,
+   "output_tokens": 87600,
+   "cost": {
+    "amount": 2.19,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-14",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 861,
+   "input_tokens": 1291500,
+   "output_tokens": 387450,
+   "cost": {
+    "amount": 9.6863,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-14",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3411,
+   "input_tokens": 11938500,
+   "output_tokens": 2387700,
+   "cost": {
+    "amount": 71.631,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-14",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 537,
+   "input_tokens": 4833000,
+   "output_tokens": 644400,
+   "cost": {
+    "amount": 40.275,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-14",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 135,
+   "input_tokens": 1620000,
+   "output_tokens": 81000,
+   "cost": {
+    "amount": 2.025,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-15",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 403,
+   "input_tokens": 604500,
+   "output_tokens": 181350,
+   "cost": {
+    "amount": 4.5338,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-15",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1253,
+   "input_tokens": 4385500,
+   "output_tokens": 877100,
+   "cost": {
+    "amount": 26.313,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-15",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 229,
+   "input_tokens": 2061000,
+   "output_tokens": 274800,
+   "cost": {
+    "amount": 17.175,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-15",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 65,
+   "input_tokens": 780000,
+   "output_tokens": 39000,
+   "cost": {
+    "amount": 0.975,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-16",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 460,
+   "input_tokens": 690000,
+   "output_tokens": 207000,
+   "cost": {
+    "amount": 5.175,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-16",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1356,
+   "input_tokens": 4746000,
+   "output_tokens": 949200,
+   "cost": {
+    "amount": 28.476,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-16",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 279,
+   "input_tokens": 2511000,
+   "output_tokens": 334800,
+   "cost": {
+    "amount": 20.925,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-16",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 71,
+   "input_tokens": 852000,
+   "output_tokens": 42600,
+   "cost": {
+    "amount": 1.065,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-17",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 1022,
+   "input_tokens": 1533000,
+   "output_tokens": 459900,
+   "cost": {
+    "amount": 11.4975,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-17",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3053,
+   "input_tokens": 10685500,
+   "output_tokens": 2137100,
+   "cost": {
+    "amount": 64.113,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-17",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 581,
+   "input_tokens": 5229000,
+   "output_tokens": 697200,
+   "cost": {
+    "amount": 43.575,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-17",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 145,
+   "input_tokens": 1740000,
+   "output_tokens": 87000,
+   "cost": {
+    "amount": 2.175,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-18",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 816,
+   "input_tokens": 1224000,
+   "output_tokens": 367200,
+   "cost": {
+    "amount": 9.18,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-18",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2946,
+   "input_tokens": 10311000,
+   "output_tokens": 2062200,
+   "cost": {
+    "amount": 61.866,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-18",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 529,
+   "input_tokens": 4761000,
+   "output_tokens": 634800,
+   "cost": {
+    "amount": 39.675,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-18",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 154,
+   "input_tokens": 1848000,
+   "output_tokens": 92400,
+   "cost": {
+    "amount": 2.31,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-19",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 909,
+   "input_tokens": 1363500,
+   "output_tokens": 409050,
+   "cost": {
+    "amount": 10.2263,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-19",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3102,
+   "input_tokens": 10857000,
+   "output_tokens": 2171400,
+   "cost": {
+    "amount": 65.142,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-19",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 522,
+   "input_tokens": 4698000,
+   "output_tokens": 626400,
+   "cost": {
+    "amount": 39.15,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-19",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 136,
+   "input_tokens": 1632000,
+   "output_tokens": 81600,
+   "cost": {
+    "amount": 2.04,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-20",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 858,
+   "input_tokens": 1287000,
+   "output_tokens": 386100,
+   "cost": {
+    "amount": 9.6525,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-20",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2660,
+   "input_tokens": 9310000,
+   "output_tokens": 1862000,
+   "cost": {
+    "amount": 55.86,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-20",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 662,
+   "input_tokens": 5958000,
+   "output_tokens": 794400,
+   "cost": {
+    "amount": 49.65,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-20",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 172,
+   "input_tokens": 2064000,
+   "output_tokens": 103200,
+   "cost": {
+    "amount": 2.58,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-21",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 788,
+   "input_tokens": 1182000,
+   "output_tokens": 354600,
+   "cost": {
+    "amount": 8.865,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-21",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2858,
+   "input_tokens": 10003000,
+   "output_tokens": 2000600,
+   "cost": {
+    "amount": 60.018,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-21",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 557,
+   "input_tokens": 5013000,
+   "output_tokens": 668400,
+   "cost": {
+    "amount": 41.775,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-21",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 164,
+   "input_tokens": 1968000,
+   "output_tokens": 98400,
+   "cost": {
+    "amount": 2.46,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-22",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 459,
+   "input_tokens": 688500,
+   "output_tokens": 206550,
+   "cost": {
+    "amount": 5.1638,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-22",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1206,
+   "input_tokens": 4221000,
+   "output_tokens": 844200,
+   "cost": {
+    "amount": 25.326,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-22",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 273,
+   "input_tokens": 2457000,
+   "output_tokens": 327600,
+   "cost": {
+    "amount": 20.475,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-22",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 57,
+   "input_tokens": 684000,
+   "output_tokens": 34200,
+   "cost": {
+    "amount": 0.855,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-23",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 355,
+   "input_tokens": 532500,
+   "output_tokens": 159750,
+   "cost": {
+    "amount": 3.9938,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-23",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1357,
+   "input_tokens": 4749500,
+   "output_tokens": 949900,
+   "cost": {
+    "amount": 28.497,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-23",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 303,
+   "input_tokens": 2727000,
+   "output_tokens": 363600,
+   "cost": {
+    "amount": 22.725,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-23",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 64,
+   "input_tokens": 768000,
+   "output_tokens": 38400,
+   "cost": {
+    "amount": 0.96,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-24",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 900,
+   "input_tokens": 1350000,
+   "output_tokens": 405000,
+   "cost": {
+    "amount": 10.125,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-24",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3101,
+   "input_tokens": 10853500,
+   "output_tokens": 2170700,
+   "cost": {
+    "amount": 65.121,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-24",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 651,
+   "input_tokens": 5859000,
+   "output_tokens": 781200,
+   "cost": {
+    "amount": 48.825,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-24",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 161,
+   "input_tokens": 1932000,
+   "output_tokens": 96600,
+   "cost": {
+    "amount": 2.415,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-25",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 873,
+   "input_tokens": 1309500,
+   "output_tokens": 392850,
+   "cost": {
+    "amount": 9.8212,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-25",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2729,
+   "input_tokens": 9551500,
+   "output_tokens": 1910300,
+   "cost": {
+    "amount": 57.309,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-25",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 598,
+   "input_tokens": 5382000,
+   "output_tokens": 717600,
+   "cost": {
+    "amount": 44.85,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-25",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 160,
+   "input_tokens": 1920000,
+   "output_tokens": 96000,
+   "cost": {
+    "amount": 2.4,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-26",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 817,
+   "input_tokens": 1225500,
+   "output_tokens": 367650,
+   "cost": {
+    "amount": 9.1913,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-26",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2859,
+   "input_tokens": 10006500,
+   "output_tokens": 2001300,
+   "cost": {
+    "amount": 60.039,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-26",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 655,
+   "input_tokens": 5895000,
+   "output_tokens": 786000,
+   "cost": {
+    "amount": 49.125,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-26",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 160,
+   "input_tokens": 1920000,
+   "output_tokens": 96000,
+   "cost": {
+    "amount": 2.4,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-27",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 786,
+   "input_tokens": 1179000,
+   "output_tokens": 353700,
+   "cost": {
+    "amount": 8.8425,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-27",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2973,
+   "input_tokens": 10405500,
+   "output_tokens": 2081100,
+   "cost": {
+    "amount": 62.433,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-27",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 570,
+   "input_tokens": 5130000,
+   "output_tokens": 684000,
+   "cost": {
+    "amount": 42.75,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-27",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 149,
+   "input_tokens": 1788000,
+   "output_tokens": 89400,
+   "cost": {
+    "amount": 2.235,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-28",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 765,
+   "input_tokens": 1147500,
+   "output_tokens": 344250,
+   "cost": {
+    "amount": 8.6062,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-28",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2859,
+   "input_tokens": 10006500,
+   "output_tokens": 2001300,
+   "cost": {
+    "amount": 60.039,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-28",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 625,
+   "input_tokens": 5625000,
+   "output_tokens": 750000,
+   "cost": {
+    "amount": 46.875,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-28",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 165,
+   "input_tokens": 1980000,
+   "output_tokens": 99000,
+   "cost": {
+    "amount": 2.475,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-29",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 435,
+   "input_tokens": 652500,
+   "output_tokens": 195750,
+   "cost": {
+    "amount": 4.8938,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-29",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1219,
+   "input_tokens": 4266500,
+   "output_tokens": 853300,
+   "cost": {
+    "amount": 25.599,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-29",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 293,
+   "input_tokens": 2637000,
+   "output_tokens": 351600,
+   "cost": {
+    "amount": 21.975,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-29",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 64,
+   "input_tokens": 768000,
+   "output_tokens": 38400,
+   "cost": {
+    "amount": 0.96,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-30",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 392,
+   "input_tokens": 588000,
+   "output_tokens": 176400,
+   "cost": {
+    "amount": 4.41,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-30",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1530,
+   "input_tokens": 5355000,
+   "output_tokens": 1071000,
+   "cost": {
+    "amount": 32.13,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-30",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 288,
+   "input_tokens": 2592000,
+   "output_tokens": 345600,
+   "cost": {
+    "amount": 21.6,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-30",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 60,
+   "input_tokens": 720000,
+   "output_tokens": 36000,
+   "cost": {
+    "amount": 0.9,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-31",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 1009,
+   "input_tokens": 1513500,
+   "output_tokens": 454050,
+   "cost": {
+    "amount": 11.3513,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-31",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2681,
+   "input_tokens": 9383500,
+   "output_tokens": 1876700,
+   "cost": {
+    "amount": 56.301,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-31",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 658,
+   "input_tokens": 5922000,
+   "output_tokens": 789600,
+   "cost": {
+    "amount": 49.35,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-08-31",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 171,
+   "input_tokens": 2052000,
+   "output_tokens": 102600,
+   "cost": {
+    "amount": 2.565,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-01",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 913,
+   "input_tokens": 1369500,
+   "output_tokens": 410850,
+   "cost": {
+    "amount": 10.2712,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-01",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3269,
+   "input_tokens": 11441500,
+   "output_tokens": 2288300,
+   "cost": {
+    "amount": 68.649,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-01",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 640,
+   "input_tokens": 5760000,
+   "output_tokens": 768000,
+   "cost": {
+    "amount": 48.0,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-01",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 132,
+   "input_tokens": 1584000,
+   "output_tokens": 79200,
+   "cost": {
+    "amount": 1.98,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-02",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 1031,
+   "input_tokens": 1546500,
+   "output_tokens": 463950,
+   "cost": {
+    "amount": 11.5987,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-02",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3336,
+   "input_tokens": 11676000,
+   "output_tokens": 2335200,
+   "cost": {
+    "amount": 70.056,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-02",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 515,
+   "input_tokens": 4635000,
+   "output_tokens": 618000,
+   "cost": {
+    "amount": 38.625,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-02",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 137,
+   "input_tokens": 1644000,
+   "output_tokens": 82200,
+   "cost": {
+    "amount": 2.055,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-03",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 853,
+   "input_tokens": 1279500,
+   "output_tokens": 383850,
+   "cost": {
+    "amount": 9.5963,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-03",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3300,
+   "input_tokens": 11550000,
+   "output_tokens": 2310000,
+   "cost": {
+    "amount": 69.3,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-03",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 520,
+   "input_tokens": 4680000,
+   "output_tokens": 624000,
+   "cost": {
+    "amount": 39.0,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-03",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 160,
+   "input_tokens": 1920000,
+   "output_tokens": 96000,
+   "cost": {
+    "amount": 2.4,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-04",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 904,
+   "input_tokens": 1356000,
+   "output_tokens": 406800,
+   "cost": {
+    "amount": 10.17,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-04",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3340,
+   "input_tokens": 11690000,
+   "output_tokens": 2338000,
+   "cost": {
+    "amount": 70.14,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-04",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 533,
+   "input_tokens": 4797000,
+   "output_tokens": 639600,
+   "cost": {
+    "amount": 39.975,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-04",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 134,
+   "input_tokens": 1608000,
+   "output_tokens": 80400,
+   "cost": {
+    "amount": 2.01,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-05",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 438,
+   "input_tokens": 657000,
+   "output_tokens": 197100,
+   "cost": {
+    "amount": 4.9275,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-05",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1461,
+   "input_tokens": 5113500,
+   "output_tokens": 1022700,
+   "cost": {
+    "amount": 30.681,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-05",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 241,
+   "input_tokens": 2169000,
+   "output_tokens": 289200,
+   "cost": {
+    "amount": 18.075,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-05",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 60,
+   "input_tokens": 720000,
+   "output_tokens": 36000,
+   "cost": {
+    "amount": 0.9,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-06",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 351,
+   "input_tokens": 526500,
+   "output_tokens": 157950,
+   "cost": {
+    "amount": 3.9487,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-06",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1362,
+   "input_tokens": 4767000,
+   "output_tokens": 953400,
+   "cost": {
+    "amount": 28.602,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-06",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 268,
+   "input_tokens": 2412000,
+   "output_tokens": 321600,
+   "cost": {
+    "amount": 20.1,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-06",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 73,
+   "input_tokens": 876000,
+   "output_tokens": 43800,
+   "cost": {
+    "amount": 1.095,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-07",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 776,
+   "input_tokens": 1164000,
+   "output_tokens": 349200,
+   "cost": {
+    "amount": 8.73,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-07",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2956,
+   "input_tokens": 10346000,
+   "output_tokens": 2069200,
+   "cost": {
+    "amount": 62.076,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-07",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 515,
+   "input_tokens": 4635000,
+   "output_tokens": 618000,
+   "cost": {
+    "amount": 38.625,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-07",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 167,
+   "input_tokens": 2004000,
+   "output_tokens": 100200,
+   "cost": {
+    "amount": 2.505,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-08",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 1027,
+   "input_tokens": 1540500,
+   "output_tokens": 462150,
+   "cost": {
+    "amount": 11.5538,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-08",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2729,
+   "input_tokens": 9551500,
+   "output_tokens": 1910300,
+   "cost": {
+    "amount": 57.309,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-08",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 559,
+   "input_tokens": 5031000,
+   "output_tokens": 670800,
+   "cost": {
+    "amount": 41.925,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-08",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 150,
+   "input_tokens": 1800000,
+   "output_tokens": 90000,
+   "cost": {
+    "amount": 2.25,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-09",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 831,
+   "input_tokens": 1246500,
+   "output_tokens": 373950,
+   "cost": {
+    "amount": 9.3487,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-09",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3338,
+   "input_tokens": 11683000,
+   "output_tokens": 2336600,
+   "cost": {
+    "amount": 70.098,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-09",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 677,
+   "input_tokens": 6093000,
+   "output_tokens": 812400,
+   "cost": {
+    "amount": 50.775,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-09",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 169,
+   "input_tokens": 2028000,
+   "output_tokens": 101400,
+   "cost": {
+    "amount": 2.535,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-10",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 797,
+   "input_tokens": 1195500,
+   "output_tokens": 358650,
+   "cost": {
+    "amount": 8.9663,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-10",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2615,
+   "input_tokens": 9152500,
+   "output_tokens": 1830500,
+   "cost": {
+    "amount": 54.915,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-10",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 553,
+   "input_tokens": 4977000,
+   "output_tokens": 663600,
+   "cost": {
+    "amount": 41.475,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-10",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 130,
+   "input_tokens": 1560000,
+   "output_tokens": 78000,
+   "cost": {
+    "amount": 1.95,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-11",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 1007,
+   "input_tokens": 1510500,
+   "output_tokens": 453150,
+   "cost": {
+    "amount": 11.3287,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-11",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3194,
+   "input_tokens": 11179000,
+   "output_tokens": 2235800,
+   "cost": {
+    "amount": 67.074,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-11",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 628,
+   "input_tokens": 5652000,
+   "output_tokens": 753600,
+   "cost": {
+    "amount": 47.1,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-11",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 133,
+   "input_tokens": 1596000,
+   "output_tokens": 79800,
+   "cost": {
+    "amount": 1.995,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-12",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 370,
+   "input_tokens": 555000,
+   "output_tokens": 166500,
+   "cost": {
+    "amount": 4.1625,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-12",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1308,
+   "input_tokens": 4578000,
+   "output_tokens": 915600,
+   "cost": {
+    "amount": 27.468,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-12",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 268,
+   "input_tokens": 2412000,
+   "output_tokens": 321600,
+   "cost": {
+    "amount": 20.1,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-12",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 77,
+   "input_tokens": 924000,
+   "output_tokens": 46200,
+   "cost": {
+    "amount": 1.155,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-13",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 406,
+   "input_tokens": 609000,
+   "output_tokens": 182700,
+   "cost": {
+    "amount": 4.5675,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-13",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1226,
+   "input_tokens": 4291000,
+   "output_tokens": 858200,
+   "cost": {
+    "amount": 25.746,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-13",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 255,
+   "input_tokens": 2295000,
+   "output_tokens": 306000,
+   "cost": {
+    "amount": 19.125,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-13",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 71,
+   "input_tokens": 852000,
+   "output_tokens": 42600,
+   "cost": {
+    "amount": 1.065,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-14",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 883,
+   "input_tokens": 1324500,
+   "output_tokens": 397350,
+   "cost": {
+    "amount": 9.9337,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-14",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2848,
+   "input_tokens": 9968000,
+   "output_tokens": 1993600,
+   "cost": {
+    "amount": 59.808,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-14",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 622,
+   "input_tokens": 5598000,
+   "output_tokens": 746400,
+   "cost": {
+    "amount": 46.65,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-14",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 150,
+   "input_tokens": 1800000,
+   "output_tokens": 90000,
+   "cost": {
+    "amount": 2.25,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-15",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 977,
+   "input_tokens": 1465500,
+   "output_tokens": 439650,
+   "cost": {
+    "amount": 10.9912,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-15",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2644,
+   "input_tokens": 9254000,
+   "output_tokens": 1850800,
+   "cost": {
+    "amount": 55.524,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-15",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 557,
+   "input_tokens": 5013000,
+   "output_tokens": 668400,
+   "cost": {
+    "amount": 41.775,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-15",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 129,
+   "input_tokens": 1548000,
+   "output_tokens": 77400,
+   "cost": {
+    "amount": 1.935,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-16",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 986,
+   "input_tokens": 1479000,
+   "output_tokens": 443700,
+   "cost": {
+    "amount": 11.0925,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-16",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3158,
+   "input_tokens": 11053000,
+   "output_tokens": 2210600,
+   "cost": {
+    "amount": 66.318,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-16",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 680,
+   "input_tokens": 6120000,
+   "output_tokens": 816000,
+   "cost": {
+    "amount": 51.0,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-16",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 145,
+   "input_tokens": 1740000,
+   "output_tokens": 87000,
+   "cost": {
+    "amount": 2.175,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-17",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 898,
+   "input_tokens": 1347000,
+   "output_tokens": 404100,
+   "cost": {
+    "amount": 10.1025,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-17",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2801,
+   "input_tokens": 9803500,
+   "output_tokens": 1960700,
+   "cost": {
+    "amount": 58.821,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-17",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 653,
+   "input_tokens": 5877000,
+   "output_tokens": 783600,
+   "cost": {
+    "amount": 48.975,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-17",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 135,
+   "input_tokens": 1620000,
+   "output_tokens": 81000,
+   "cost": {
+    "amount": 2.025,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-18",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 769,
+   "input_tokens": 1153500,
+   "output_tokens": 346050,
+   "cost": {
+    "amount": 8.6513,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-18",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2784,
+   "input_tokens": 9744000,
+   "output_tokens": 1948800,
+   "cost": {
+    "amount": 58.464,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-18",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 619,
+   "input_tokens": 5571000,
+   "output_tokens": 742800,
+   "cost": {
+    "amount": 46.425,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-18",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 137,
+   "input_tokens": 1644000,
+   "output_tokens": 82200,
+   "cost": {
+    "amount": 2.055,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-19",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 385,
+   "input_tokens": 577500,
+   "output_tokens": 173250,
+   "cost": {
+    "amount": 4.3312,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-19",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1522,
+   "input_tokens": 5327000,
+   "output_tokens": 1065400,
+   "cost": {
+    "amount": 31.962,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-19",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 251,
+   "input_tokens": 2259000,
+   "output_tokens": 301200,
+   "cost": {
+    "amount": 18.825,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-19",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 59,
+   "input_tokens": 708000,
+   "output_tokens": 35400,
+   "cost": {
+    "amount": 0.885,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-20",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 357,
+   "input_tokens": 535500,
+   "output_tokens": 160650,
+   "cost": {
+    "amount": 4.0162,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-20",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1167,
+   "input_tokens": 4084500,
+   "output_tokens": 816900,
+   "cost": {
+    "amount": 24.507,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-20",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 245,
+   "input_tokens": 2205000,
+   "output_tokens": 294000,
+   "cost": {
+    "amount": 18.375,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-20",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 63,
+   "input_tokens": 756000,
+   "output_tokens": 37800,
+   "cost": {
+    "amount": 0.945,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-21",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 843,
+   "input_tokens": 1264500,
+   "output_tokens": 379350,
+   "cost": {
+    "amount": 9.4838,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-21",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2710,
+   "input_tokens": 9485000,
+   "output_tokens": 1897000,
+   "cost": {
+    "amount": 56.91,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-21",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 572,
+   "input_tokens": 5148000,
+   "output_tokens": 686400,
+   "cost": {
+    "amount": 42.9,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-21",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 128,
+   "input_tokens": 1536000,
+   "output_tokens": 76800,
+   "cost": {
+    "amount": 1.92,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-22",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 901,
+   "input_tokens": 1351500,
+   "output_tokens": 405450,
+   "cost": {
+    "amount": 10.1363,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-22",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3012,
+   "input_tokens": 10542000,
+   "output_tokens": 2108400,
+   "cost": {
+    "amount": 63.252,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-22",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 554,
+   "input_tokens": 4986000,
+   "output_tokens": 664800,
+   "cost": {
+    "amount": 41.55,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-22",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 147,
+   "input_tokens": 1764000,
+   "output_tokens": 88200,
+   "cost": {
+    "amount": 2.205,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-23",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 942,
+   "input_tokens": 1413000,
+   "output_tokens": 423900,
+   "cost": {
+    "amount": 10.5975,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-23",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3349,
+   "input_tokens": 11721500,
+   "output_tokens": 2344300,
+   "cost": {
+    "amount": 70.329,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-23",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 684,
+   "input_tokens": 6156000,
+   "output_tokens": 820800,
+   "cost": {
+    "amount": 51.3,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-23",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 141,
+   "input_tokens": 1692000,
+   "output_tokens": 84600,
+   "cost": {
+    "amount": 2.115,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-24",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 818,
+   "input_tokens": 1227000,
+   "output_tokens": 368100,
+   "cost": {
+    "amount": 9.2025,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-24",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3205,
+   "input_tokens": 11217500,
+   "output_tokens": 2243500,
+   "cost": {
+    "amount": 67.305,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-24",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 535,
+   "input_tokens": 4815000,
+   "output_tokens": 642000,
+   "cost": {
+    "amount": 40.125,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-24",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 172,
+   "input_tokens": 2064000,
+   "output_tokens": 103200,
+   "cost": {
+    "amount": 2.58,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-25",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 933,
+   "input_tokens": 1399500,
+   "output_tokens": 419850,
+   "cost": {
+    "amount": 10.4962,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-25",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2937,
+   "input_tokens": 10279500,
+   "output_tokens": 2055900,
+   "cost": {
+    "amount": 61.677,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-25",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 519,
+   "input_tokens": 4671000,
+   "output_tokens": 622800,
+   "cost": {
+    "amount": 38.925,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-25",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 157,
+   "input_tokens": 1884000,
+   "output_tokens": 94200,
+   "cost": {
+    "amount": 2.355,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-26",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 462,
+   "input_tokens": 693000,
+   "output_tokens": 207900,
+   "cost": {
+    "amount": 5.1975,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-26",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1428,
+   "input_tokens": 4998000,
+   "output_tokens": 999600,
+   "cost": {
+    "amount": 29.988,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-26",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 233,
+   "input_tokens": 2097000,
+   "output_tokens": 279600,
+   "cost": {
+    "amount": 17.475,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-26",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 61,
+   "input_tokens": 732000,
+   "output_tokens": 36600,
+   "cost": {
+    "amount": 0.915,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-27",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 388,
+   "input_tokens": 582000,
+   "output_tokens": 174600,
+   "cost": {
+    "amount": 4.365,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-27",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 1546,
+   "input_tokens": 5411000,
+   "output_tokens": 1082200,
+   "cost": {
+    "amount": 32.466,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-27",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 255,
+   "input_tokens": 2295000,
+   "output_tokens": 306000,
+   "cost": {
+    "amount": 19.125,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-27",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 58,
+   "input_tokens": 696000,
+   "output_tokens": 34800,
+   "cost": {
+    "amount": 0.87,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-28",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 855,
+   "input_tokens": 1282500,
+   "output_tokens": 384750,
+   "cost": {
+    "amount": 9.6187,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-28",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2801,
+   "input_tokens": 9803500,
+   "output_tokens": 1960700,
+   "cost": {
+    "amount": 58.821,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-28",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 628,
+   "input_tokens": 5652000,
+   "output_tokens": 753600,
+   "cost": {
+    "amount": 47.1,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-28",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 138,
+   "input_tokens": 1656000,
+   "output_tokens": 82800,
+   "cost": {
+    "amount": 2.07,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-29",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 985,
+   "input_tokens": 1477500,
+   "output_tokens": 443250,
+   "cost": {
+    "amount": 11.0813,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-29",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 3078,
+   "input_tokens": 10773000,
+   "output_tokens": 2154600,
+   "cost": {
+    "amount": 64.638,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-29",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 580,
+   "input_tokens": 5220000,
+   "output_tokens": 696000,
+   "cost": {
+    "amount": 43.5,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-29",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 140,
+   "input_tokens": 1680000,
+   "output_tokens": 84000,
+   "cost": {
+    "amount": 2.1,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-30",
+   "workspace": "sales-email",
+   "model": "claude-balanced",
+   "request_count": 1023,
+   "input_tokens": 1534500,
+   "output_tokens": 460350,
+   "cost": {
+    "amount": 11.5087,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-30",
+   "workspace": "code-assist",
+   "model": "claude-balanced",
+   "request_count": 2689,
+   "input_tokens": 9411500,
+   "output_tokens": 1882300,
+   "cost": {
+    "amount": 56.469,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-30",
+   "workspace": "pr-review",
+   "model": "claude-frontier",
+   "request_count": 670,
+   "input_tokens": 6030000,
+   "output_tokens": 804000,
+   "cost": {
+    "amount": 50.25,
+    "currency": "USD"
+   }
+  },
+  {
+   "usage_date": "2026-09-30",
+   "workspace": "contract-summary",
+   "model": "claude-mini",
+   "request_count": 162,
+   "input_tokens": 1944000,
+   "output_tokens": 97200,
+   "cost": {
+    "amount": 2.43,
+    "currency": "USD"
+   }
+  }
+ ]
+}

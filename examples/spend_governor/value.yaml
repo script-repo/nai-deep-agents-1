@@ -1,0 +1,10 @@
+# ROI assumptions per team: what one successful AI request is worth.
+# value = requests x success_rate x minutes_saved_per_request / 60 x loaded hourly rate.
+# Keep these conservative, and have each team own (and defend) its numbers.
+defaults: {minutes_saved_per_request: 0.1, hourly_rate_usd: 60, success_rate: 0.5}
+teams:
+  customer-support: {minutes_saved_per_request: 0.05, hourly_rate_usd: 38, success_rate: 0.6}
+  sales: {minutes_saved_per_request: 0.5, hourly_rate_usd: 70, success_rate: 0.5}
+  data-science: {minutes_saved_per_request: 0.2, hourly_rate_usd: 90, success_rate: 0.4}
+  engineering: {minutes_saved_per_request: 0.3, hourly_rate_usd: 95, success_rate: 0.5}
+  legal: {minutes_saved_per_request: 1.5, hourly_rate_usd: 150, success_rate: 0.6}

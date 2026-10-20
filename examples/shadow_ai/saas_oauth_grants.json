@@ -1,0 +1,34 @@
+{
+  "grants": [
+    {
+      "user": "e.novak",
+      "app": "Otter.ai",
+      "app_domain": "otter.ai",
+      "scopes": [
+        "calendar",
+        "offline_access"
+      ],
+      "granted_at": "2026-09-02"
+    },
+    {
+      "user": "d.patel",
+      "app": "PDF AI Summarizer",
+      "app_domain": "pdf-ai-summarizer.example.net",
+      "scopes": [
+        "drive",
+        "files.readwrite",
+        "offline_access"
+      ],
+      "granted_at": "2026-10-01"
+    },
+    {
+      "user": "b.chen",
+      "app": "GitHub Copilot",
+      "app_domain": "copilot.github.com",
+      "scopes": [
+        "read:user"
+      ],
+      "granted_at": "2026-01-10"
+    }
+  ]
+}

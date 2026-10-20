@@ -1,0 +1,16 @@
+# Attribution: which team owns each project/workspace/API key, and monthly budgets (USD).
+projects:
+  support-bot: customer-support
+  kb-search: customer-support
+  sales-email: sales
+  forecasting-nb: data-science
+  code-assist: engineering
+  pr-review: engineering
+  contract-summary: legal
+budgets:
+  customer-support: 600
+  sales: 300
+  data-science: 250
+  engineering: 2500
+  legal: 80
+  marketing: 200

@@ -52,8 +52,10 @@ def identify(request: Request, settings: Settings) -> str:
     header = request.headers.get("authorization", "")
     scheme, _, value = header.partition(" ")
     scheme = scheme.lower()
-    if scheme == "bearer" and settings.app_auth_token and hmac.compare_digest(
-        value.strip().encode(), settings.app_auth_token.get_secret_value().encode()
+    if (
+        scheme == "bearer"
+        and settings.app_auth_token
+        and hmac.compare_digest(value.strip().encode(), settings.app_auth_token.get_secret_value().encode())
     ):
         return "token"
     if scheme == "basic":
@@ -64,5 +66,8 @@ def identify(request: Request, settings: Settings) -> str:
         stored = _basic_users(settings).get(user)
         if stored is not None and _check_password(stored, pw):
             return user
-    raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Authentication required",
-                        headers={"WWW-Authenticate": 'Bearer realm="nai-agents"'})
+    raise HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Authentication required",
+        headers={"WWW-Authenticate": 'Bearer realm="nai-agents"'},
+    )

@@ -56,9 +56,12 @@ def read_records(path: str, subdir: str | None = None) -> list[dict[str, Any]]:
         return [json.loads(line) for line in text.splitlines() if line.strip()]
     data = json.loads(text)
     if isinstance(data, dict):
-        for key in ("data", "records", "items", "usage", "events"):
+        for key in ("data", "records", "items", "usage", "events", "results"):
             if isinstance(data.get(key), list):
                 return data[key]
+        lists = [v for v in data.values() if isinstance(v, list)]
+        if len(lists) == 1:  # e.g. {"grants": [...]} or {"requests": [...]}
+            return lists[0]
         return [data]
     return list(data)
 

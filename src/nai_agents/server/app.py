@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import contextlib
 import json
 import logging
 from collections.abc import AsyncIterator
@@ -20,7 +21,7 @@ from sse_starlette.sse import EventSourceResponse
 from nai_agents import __version__
 from nai_agents.core.checkpoint import open_checkpointer
 from nai_agents.core.models import ModelConfig, load_catalog
-from nai_agents.core.registry import AgentSpec, all_agents, get_agent
+from nai_agents.core.registry import AgentSpec, all_agents
 from nai_agents.core.runner import resume_command, stream_events, thread_snapshot
 from nai_agents.core.settings import Settings, get_settings
 from nai_agents.server.auth import auth_mode, identify
@@ -102,11 +103,20 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             app.state.rt = Runtime(settings, saver)
             yield
 
-    app = FastAPI(title="NAI Deep Agents", version=__version__, lifespan=lifespan,
-                  docs_url="/api/docs", openapi_url="/api/openapi.json")
+    app = FastAPI(
+        title="NAI Deep Agents",
+        version=__version__,
+        lifespan=lifespan,
+        docs_url="/api/docs",
+        openapi_url="/api/openapi.json",
+    )
     if settings.app_cors_origins:
-        app.add_middleware(CORSMiddleware, allow_origins=settings.app_cors_origins.split(","),
-                           allow_methods=["*"], allow_headers=["*"])
+        app.add_middleware(
+            CORSMiddleware,
+            allow_origins=settings.app_cors_origins.split(","),
+            allow_methods=["*"],
+            allow_headers=["*"],
+        )
 
     def rt(request: Request) -> Runtime:
         return request.app.state.rt
@@ -127,10 +137,13 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @app.get("/api/config")
     async def config(request: Request) -> dict[str, Any]:
-        return {"version": __version__, "auth": auth_mode(settings),
-                "allow_model_settings": settings.app_allow_ui_model_settings,
-                "allow_api_keys": settings.app_allow_ui_api_keys,
-                "mock": rt(request).model_cfg.provider == "mock"}
+        return {
+            "version": __version__,
+            "auth": auth_mode(settings),
+            "allow_model_settings": settings.app_allow_ui_model_settings,
+            "allow_api_keys": settings.app_allow_ui_api_keys,
+            "mock": rt(request).model_cfg.provider == "mock",
+        }
 
     # -- authenticated ---------------------------------------------------------------------------
     @app.get("/api/me")
@@ -154,24 +167,36 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @app.get("/api/settings")
     async def get_model_settings(request: Request, who: str = Depends(user)) -> dict[str, Any]:
-        return {"model": rt(request).model_cfg.public(), "providers": PROVIDERS,
-                "editable": settings.app_allow_ui_model_settings,
-                "api_keys_allowed": settings.app_allow_ui_api_keys}
+        return {
+            "model": rt(request).model_cfg.public(),
+            "providers": PROVIDERS,
+            "editable": settings.app_allow_ui_model_settings,
+            "api_keys_allowed": settings.app_allow_ui_api_keys,
+        }
 
     @app.put("/api/settings")
-    async def put_model_settings(body: ModelSettingsBody, request: Request,
-                                 who: str = Depends(user)) -> dict[str, Any]:
+    async def put_model_settings(
+        body: ModelSettingsBody, request: Request, who: str = Depends(user)
+    ) -> dict[str, Any]:
         if not settings.app_allow_ui_model_settings:
             raise HTTPException(403, "Model settings are locked by the administrator")
         runtime = rt(request)
         api_key = runtime.model_cfg.api_key
         if body.api_key:
             if not settings.app_allow_ui_api_keys:
-                raise HTTPException(403, "Entering API keys in the UI is disabled; set LLM_API_KEY on the server")
+                raise HTTPException(
+                    403, "Entering API keys in the UI is disabled; set LLM_API_KEY on the server"
+                )
             api_key = body.api_key
-        cfg = ModelConfig(provider=body.provider, model=body.model, base_url=body.base_url or None,
-                          api_key=api_key, temperature=body.temperature,
-                          max_tokens=runtime.model_cfg.max_tokens, timeout_s=runtime.model_cfg.timeout_s)
+        cfg = ModelConfig(
+            provider=body.provider,
+            model=body.model,
+            base_url=body.base_url or None,
+            api_key=api_key,
+            temperature=body.temperature,
+            max_tokens=runtime.model_cfg.max_tokens,
+            timeout_s=runtime.model_cfg.timeout_s,
+        )
         try:
             from nai_agents.core.models import build_chat_model
 
@@ -183,8 +208,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         return {"model": cfg.public()}
 
     @app.get("/api/threads")
-    async def list_threads(request: Request, agent_id: str | None = None,
-                           who: str = Depends(user)) -> list[dict[str, Any]]:
+    async def list_threads(
+        request: Request, agent_id: str | None = None, who: str = Depends(user)
+    ) -> list[dict[str, Any]]:
         return [t.public() for t in rt(request).threads.list(who, agent_id)]
 
     @app.post("/api/threads", status_code=201)
@@ -203,10 +229,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     async def delete_thread(thread_id: str, request: Request, who: str = Depends(user)) -> None:
         owned(thread_id, request, who)
         runtime = rt(request)
-        try:
+        with contextlib.suppress(AttributeError, NotImplementedError):
             await runtime.checkpointer.adelete_thread(thread_id)
-        except (AttributeError, NotImplementedError):  # pragma: no cover
-            pass
         runtime.threads.delete(thread_id)
 
     async def _sse(request: Request, meta: ThreadMeta, graph_input: Any) -> EventSourceResponse:
@@ -234,16 +258,18 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         return EventSourceResponse(gen(), ping=15, headers={"X-Accel-Buffering": "no"})
 
     @app.post("/api/threads/{thread_id}/messages")
-    async def send_message(thread_id: str, body: UserMessage, request: Request,
-                           who: str = Depends(user)) -> EventSourceResponse:
+    async def send_message(
+        thread_id: str, body: UserMessage, request: Request, who: str = Depends(user)
+    ) -> EventSourceResponse:
         meta = owned(thread_id, request, who)
         if meta.title == "New chat":
             rt(request).threads.update(thread_id, title=body.content.strip().splitlines()[0][:80])
         return await _sse(request, meta, {"messages": [{"role": "user", "content": body.content}]})
 
     @app.post("/api/threads/{thread_id}/resume")
-    async def resume(thread_id: str, body: ResumeBody, request: Request,
-                     who: str = Depends(user)) -> EventSourceResponse:
+    async def resume(
+        thread_id: str, body: ResumeBody, request: Request, who: str = Depends(user)
+    ) -> EventSourceResponse:
         meta = owned(thread_id, request, who)
         decisions = [d.model_dump(exclude_none=True) for d in body.decisions]
         return await _sse(request, meta, resume_command(decisions, body.interrupt_id))
@@ -262,6 +288,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     if (STATIC_DIR / "index.html").exists():
         app.mount("/", StaticFiles(directory=STATIC_DIR, html=True), name="ui")
     else:
+
         @app.get("/", response_class=HTMLResponse)
         async def no_ui() -> str:
             return NO_UI_HTML

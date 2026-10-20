@@ -1,0 +1,20 @@
+# Scope catalog for agent credentials. risk: low | medium | high | critical.
+# High and critical scopes always need a human; `narrower` lists least-privilege substitutes.
+scopes:
+  repo:read:            {risk: low, max_ttl_minutes: 480, description: Read repository contents}
+  repo:write:           {risk: medium, max_ttl_minutes: 120, description: Push to non-protected branches}
+  repo:admin:           {risk: critical, max_ttl_minutes: 15, description: Change repo settings and protections, narrower: [repo:write]}
+  tickets:read:         {risk: low, max_ttl_minutes: 480, description: Read tickets}
+  tickets:write:        {risk: medium, max_ttl_minutes: 240, description: Create and update tickets}
+  crm:read:             {risk: medium, max_ttl_minutes: 240, description: Read customer records (PII)}
+  crm:export:           {risk: high, max_ttl_minutes: 30, description: Bulk export customer records, narrower: [crm:read]}
+  db:prod:read:         {risk: high, max_ttl_minutes: 60, description: Read production databases, narrower: [db:replica:read]}
+  db:replica:read:      {risk: medium, max_ttl_minutes: 240, description: Read the analytics replica}
+  db:prod:write:        {risk: critical, max_ttl_minutes: 15, description: Write production databases}
+  cloud:vm:read:        {risk: low, max_ttl_minutes: 480, description: List and describe VMs}
+  cloud:vm:operate:     {risk: medium, max_ttl_minutes: 120, description: Start, stop and snapshot VMs}
+  cloud:iam:admin:      {risk: critical, max_ttl_minutes: 15, description: Manage identities and roles}
+  email:send:           {risk: high, max_ttl_minutes: 60, description: Send email as the company, narrower: [email:draft]}
+  email:draft:          {risk: low, max_ttl_minutes: 240, description: Create email drafts for review}
+  payments:refund:      {risk: critical, max_ttl_minutes: 15, description: Issue refunds}
+  "*":                  {risk: critical, max_ttl_minutes: 5, description: Everything (never grant)}

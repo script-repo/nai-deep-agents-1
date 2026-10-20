@@ -1,0 +1,6 @@
+# Registered agents, their human owner, and the most they may ever hold (scope ceiling).
+agents:
+  release-bot:   {owner: platform-team, ceiling: [repo:read, repo:write, tickets:write]}
+  support-agent: {owner: support-lead, ceiling: [tickets:read, tickets:write, crm:read, email:draft, email:send]}
+  data-analyst:  {owner: data-lead, ceiling: [db:replica:read, db:prod:read, crm:read]}
+  infra-agent:   {owner: sre-lead, ceiling: [cloud:vm:read, cloud:vm:operate]}

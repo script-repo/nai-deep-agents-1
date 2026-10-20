@@ -108,10 +108,16 @@ def load_suite(path: str | Path) -> EvalSuite:
     path = Path(path)
     raw = path.read_text(encoding="utf-8")
     data = json.loads(raw) if path.suffix == ".json" else yaml.safe_load(raw)
-    cases = [EvalCase(**{k: v for k, v in c.items() if k in EvalCase.__dataclass_fields__})
-             for c in data.get("cases", [])]
-    return EvalSuite(name=data.get("name", path.stem), cases=cases, threshold=float(data.get("threshold", 0.8)),
-                     description=data.get("description", ""))
+    cases = [
+        EvalCase(**{k: v for k, v in c.items() if k in EvalCase.__dataclass_fields__})
+        for c in data.get("cases", [])
+    ]
+    return EvalSuite(
+        name=data.get("name", path.stem),
+        cases=cases,
+        threshold=float(data.get("threshold", 0.8)),
+        description=data.get("description", ""),
+    )
 
 
 def grade(case: EvalCase, output: str) -> bool:
@@ -166,8 +172,18 @@ def run_suite(entry: CatalogModel, suite: EvalSuite, model: BaseChatModel | None
         latency = simulated if simulated is not None else (time.perf_counter() - start) * 1000
         tin = int(usage.get("input_tokens") or len(case.prompt) // 4 + 1)
         tout = int(usage.get("output_tokens") or len(text) // 4 + 1)
-        results.append(CaseResult(case.id, case.category, grade(case, text), text[:500], round(latency, 1),
-                                  tin, tout, entry.cost(tin, tout)))
+        results.append(
+            CaseResult(
+                case.id,
+                case.category,
+                grade(case, text),
+                text[:500],
+                round(latency, 1),
+                tin,
+                tout,
+                entry.cost(tin, tout),
+            )
+        )
     passed = sum(1 for r in results if r.passed)
     total = len(results) or 1
     by_cat: dict[str, list[bool]] = {}
@@ -176,12 +192,17 @@ def run_suite(entry: CatalogModel, suite: EvalSuite, model: BaseChatModel | None
     latencies = [r.latency_ms for r in results]
     pass_rate = passed / total
     return EvalReport(
-        suite=suite.name, model=entry.name, pass_rate=round(pass_rate, 4), passed=passed, total=len(results),
+        suite=suite.name,
+        model=entry.name,
+        pass_rate=round(pass_rate, 4),
+        passed=passed,
+        total=len(results),
         p50_latency_ms=round(statistics.median(latencies), 1) if latencies else 0.0,
         p95_latency_ms=round(_percentile(latencies, 95), 1),
         cost_usd=round(sum(r.cost_usd for r in results), 6),
         by_category={k: round(sum(v) / len(v), 4) for k, v in by_cat.items()},
-        results=results, meets_threshold=pass_rate >= suite.threshold,
+        results=results,
+        meets_threshold=pass_rate >= suite.threshold,
     )
 
 
@@ -197,9 +218,14 @@ def compare_reports(baseline: dict[str, Any], current: EvalReport, tolerance: fl
     }
     regressed = delta < -tolerance or any(d < -tolerance * 2 for d in cat_deltas.values())
     return {
-        "model": current.model, "baseline_pass_rate": baseline.get("pass_rate"),
-        "current_pass_rate": current.pass_rate, "delta": delta, "category_deltas": cat_deltas,
-        "newly_failing": newly_failing, "newly_passing": newly_passing, "regressed": regressed,
+        "model": current.model,
+        "baseline_pass_rate": baseline.get("pass_rate"),
+        "current_pass_rate": current.pass_rate,
+        "delta": delta,
+        "category_deltas": cat_deltas,
+        "newly_failing": newly_failing,
+        "newly_passing": newly_passing,
+        "regressed": regressed,
         "latency_delta_ms": round(current.p50_latency_ms - float(baseline.get("p50_latency_ms", 0.0)), 1),
     }
 
