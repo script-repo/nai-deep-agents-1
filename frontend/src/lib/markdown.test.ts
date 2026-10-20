@@ -37,3 +37,13 @@ describe('renderMarkdown', () => {
     expect(renderMarkdown('```json\n{"a": 1}\n```')).toBe('<pre><code class="lang-json">{&quot;a&quot;: 1}</code></pre>');
   });
 });
+
+import { argEntries } from './format';
+
+describe('argEntries', () => {
+  it('keeps multi-line strings as readable text', () => {
+    const rows = argEntries({ user: 'd.patel', message: 'Hi,\n\nPlease use X.', limit: 5 });
+    expect(rows[1]).toEqual(['message', 'Hi,\n\nPlease use X.', true]);
+    expect(rows[2]).toEqual(['limit', '5', false]);
+  });
+});

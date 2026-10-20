@@ -10,6 +10,17 @@ export function pretty(value: unknown): string {
 }
 
 /** Pretty-print a string if it holds JSON; otherwise return it as is. */
+/** Tool arguments as [key, display text, isPlainText] rows: strings keep real line breaks. */
+export function argEntries(args: unknown): [string, string, boolean][] {
+  if (!args || typeof args !== 'object' || Array.isArray(args)) return [['value', pretty(args ?? {}), false]];
+  const rows: [string, string, boolean][] = [];
+  for (const [key, value] of Object.entries(args as Record<string, unknown>)) {
+    if (typeof value === 'string') rows.push([key, value, true]);
+    else rows.push([key, pretty(value), false]);
+  }
+  return rows.length ? rows : [['(no arguments)', '', true]];
+}
+
 export function prettyMaybeJson(text: string): { text: string; json: boolean } {
   const t = text.trim();
   if ((t.startsWith('{') && t.endsWith('}')) || (t.startsWith('[') && t.endsWith(']'))) {

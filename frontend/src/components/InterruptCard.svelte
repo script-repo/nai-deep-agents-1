@@ -1,7 +1,7 @@
 <script lang="ts">
   import { untrack } from 'svelte';
   import { allowedDecisions } from '../lib/reducer';
-  import { pretty } from '../lib/format';
+  import { argEntries, pretty } from '../lib/format';
   import type { Decision, Interrupt } from '../lib/types';
   import Icon from './Icon.svelte';
 
@@ -97,7 +97,14 @@
         </label>
         {#if row.error}<p class="err" role="alert">{row.error}</p>{/if}
       {:else}
-        <pre class="json">{pretty(action.args ?? {})}</pre>
+        <dl class="args">
+          {#each argEntries(action.args) as [key, value, isText] (key)}
+            <div class="arg">
+              <dt>{key}</dt>
+              <dd><pre class={isText ? 'text' : 'json'}>{value}</pre></dd>
+            </div>
+          {/each}
+        </dl>
       {/if}
       {#if row.choice === 'reject'}
         <label class="field reason">
@@ -142,6 +149,34 @@
 </section>
 
 <style>
+  .args {
+    margin: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .arg dt {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-2);
+    margin-bottom: 3px;
+  }
+  .arg dd {
+    margin: 0;
+  }
+  pre.text {
+    margin: 0;
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    font: inherit;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    max-height: 320px;
+    overflow: auto;
+  }
   .card {
     margin-top: 16px;
     border-radius: var(--radius-lg);
