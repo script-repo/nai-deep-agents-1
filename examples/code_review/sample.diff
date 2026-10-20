@@ -1,0 +1,65 @@
+diff --git a/app/payments.py b/app/payments.py
+index c75bdbf..b47e794 100644
+--- a/app/payments.py
++++ b/app/payments.py
+@@ -4,6 +4,11 @@ from __future__ import annotations
+ 
+ from decimal import ROUND_HALF_UP, Decimal
+ 
++import httpx
++
++PAYMENTS_API_KEY = "sk-FAKE-4f9a1c2e7b3d5a6c8e0f1a2b3c4d5e6f"
++PAYMENTS_URL = "https://payments.example.com/v1/refunds"
++
+ 
+ def to_cents(amount: Decimal) -> int:
+     """Convert a decimal amount in dollars to integer cents, rounding half up."""
+@@ -15,3 +20,15 @@ def apply_discount(total_cents: int, percent: int) -> int:
+     if not 0 <= percent <= 100:
+         raise ValueError("percent must be between 0 and 100")
+     return total_cents - total_cents * percent // 100
++
++
++def refund(charge_id: str, amount_cents: int) -> dict:
++    """Refund part or all of a charge through the payments provider."""
++    print("refunding", charge_id, amount_cents)
++    resp = httpx.post(
++        PAYMENTS_URL,
++        json={"charge": charge_id, "amount": amount_cents},
++        headers={"Authorization": f"Bearer {PAYMENTS_API_KEY}"},
++        verify=False,
++    )
++    return resp.json()
+diff --git a/app/users.py b/app/users.py
+index 5742aba..20ddc3d 100644
+--- a/app/users.py
++++ b/app/users.py
+@@ -2,9 +2,28 @@
+ 
+ from __future__ import annotations
+ 
++import logging
+ import sqlite3
+ 
++log = logging.getLogger(__name__)
++
+ 
+ def find_user(conn: sqlite3.Connection, user_id: int) -> tuple | None:
+     """Fetch one user row by id."""
+     return conn.execute("SELECT id, name, email FROM users WHERE id = ?", (user_id,)).fetchone()
++
++
++def search_users(conn: sqlite3.Connection, name: str, limit: int = 20) -> list[tuple]:
++    """Find users whose name starts with `name`."""
++    query = "SELECT id, name, email FROM users WHERE name LIKE '" + name + "%' LIMIT " + str(limit)
++    try:
++        return conn.execute(query).fetchall()
++    except:
++        log.warning("user search failed for %s", name)
++        return []
++
++
++def deactivate_user(conn: sqlite3.Connection, user_id: int) -> None:
++    """Mark a user inactive."""
++    conn.execute(f"UPDATE users SET active = 0 WHERE id = {user_id}")
++    conn.commit()

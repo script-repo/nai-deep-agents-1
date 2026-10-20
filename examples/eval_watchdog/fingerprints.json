@@ -1,0 +1,22 @@
+{
+  "mock-tiny": {
+    "fingerprint": "0418a6bf0b002f52",
+    "canaries": 8,
+    "at": "2026-10-13T06:30:00+00:00"
+  },
+  "mock-small": {
+    "fingerprint": "d2559e7ba09c0839",
+    "canaries": 8,
+    "at": "2026-10-13T06:30:00+00:00"
+  },
+  "mock-medium": {
+    "fingerprint": "b8567a7ef4756440",
+    "canaries": 8,
+    "at": "2026-10-13T06:30:00+00:00"
+  },
+  "mock-large": {
+    "fingerprint": "04a7bd2dd0443a6a",
+    "canaries": 8,
+    "at": "2026-10-13T06:30:00+00:00"
+  }
+}

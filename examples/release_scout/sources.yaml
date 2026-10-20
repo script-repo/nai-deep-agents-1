@@ -1,0 +1,36 @@
+# Release feeds the scout watches. In mock mode (LLM_PROVIDER=mock) every source is read from its local
+# `sample`; otherwise `url` is fetched over http(s) with a timeout. The providers and models in the samples
+# are fictional.
+sources:
+  - name: northwind-blog
+    provider: Northwind AI
+    type: rss            # OpenAI-style blog RSS
+    url: https://northwind.example.com/blog/rss.xml
+    sample: feeds/northwind_blog.rss
+  - name: lumen-news
+    provider: Lumen Research
+    type: atom           # Anthropic-style news Atom feed
+    url: https://lumen.example.com/news/atom.xml
+    sample: feeds/lumen_news.atom
+  - name: acme-ml-hub
+    provider: acme-ml
+    type: html           # Hugging Face-style model listing page
+    url: https://huggingface.example.com/acme-ml?sort=modified
+    sample: feeds/hf_acme_models.html
+
+# The model in production today, and its monthly volume, for cost comparisons.
+production:
+  model: mock-medium
+  monthly_input_mtok: 900
+  monthly_output_mtok: 300
+  suite: evals/general.yaml
+
+# When to recommend a switch.
+policy:
+  max_quality_drop: 0.02          # a cheaper model may be at most 2 points worse on the suite...
+  min_savings_pct: 15             # ...and must save at least 15%
+  min_quality_gain: 0.05          # a pricier model must be at least 5 points better...
+  max_cost_increase_pct: 25       # ...and cost at most 25% more
+  # Open-weight models have no list price; assume this amortized self-hosted cost (USD per Mtok).
+  self_hosted_input_per_mtok: 0.10
+  self_hosted_output_per_mtok: 0.40

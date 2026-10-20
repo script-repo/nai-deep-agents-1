@@ -1,0 +1,12 @@
+{
+  "name": "acme-orders",
+  "version": "1.4.0",
+  "private": true,
+  "packageManager": "pnpm@9.12.0",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "lint": "eslint src",
+    "test": "jest"
+  }
+}

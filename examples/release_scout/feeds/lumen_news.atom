@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Lumen Research — News</title>
+  <id>tag:lumen.example.com,2026:news</id>
+  <updated>2026-10-16T16:00:00Z</updated>
+  <link href="https://lumen.example.com/news"/>
+  <entry>
+    <title>Sonata 4.5 is now available</title>
+    <id>tag:lumen.example.com,2026:sonata-4-5</id>
+    <link href="https://lumen.example.com/news/sonata-4-5"/>
+    <updated>2026-10-16T16:00:00Z</updated>
+    <summary>Sonata 4.5 is our new frontier model for agents and long documents, with a context window of 500,000 tokens. Pricing stays at $3 per million input tokens and $15 per million output tokens.</summary>
+  </entry>
+  <entry>
+    <title>Introducing Etude 4.5</title>
+    <id>tag:lumen.example.com,2026:etude-4-5</id>
+    <link href="https://lumen.example.com/news/etude-4-5"/>
+    <updated>2026-10-09T16:00:00Z</updated>
+    <summary>Etude 4.5 is the fastest model in the family: 200K context, $0.60 / $3.00 per million input/output tokens.</summary>
+  </entry>
+  <entry>
+    <title>An update to our responsible scaling policy</title>
+    <id>tag:lumen.example.com,2026:rsp-update</id>
+    <link href="https://lumen.example.com/news/rsp-update"/>
+    <updated>2026-09-30T16:00:00Z</updated>
+    <summary>What changed in our policy and why.</summary>
+  </entry>
+  <entry>
+    <title>Sonata 4 is now available</title>
+    <id>tag:lumen.example.com,2026:sonata-4</id>
+    <link href="https://lumen.example.com/news/sonata-4"/>
+    <updated>2026-05-01T16:00:00Z</updated>
+    <summary>Sonata 4 with a 200K context window, $3 per million input tokens and $15 per million output tokens.</summary>
+  </entry>
+</feed>
